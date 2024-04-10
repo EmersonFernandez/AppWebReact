@@ -48,10 +48,6 @@ function TableProducts({ url, disabled,openModal,showProducts,productos,update})
 
     return (
         <>
-            <div className='card card-body'>
-                <div className='text-center'>
-                    <p>Listado de productos</p>
-                </div>
                 <div className='table-responsive'>
                     <table className="table table-hover table-dark table-bordered table-sm align-middle" id='myTableProduct'>
                         <thead>
@@ -94,7 +90,6 @@ function TableProducts({ url, disabled,openModal,showProducts,productos,update})
                         </tbody>
                     </table>
                 </div>
-            </div>
 
         </>
     );
