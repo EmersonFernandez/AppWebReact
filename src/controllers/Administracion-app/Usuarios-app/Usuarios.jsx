@@ -49,7 +49,7 @@ function TablesUsuarios({dataUsers,openModal,handleDeleteUser}) {
                                             <button  className='btn btn-outline-warning me-1' data-bs-toggle='modal' data-bs-target='#modalUsuario' onClick={() => openModal(2,dataUsers.results[id])}>
                                                 <i className='fa-solid fa-edit'></i>
                                             </button>
-                                            <button  className='btn btn-outline-danger ms-1' onClick={handleDeleteUser(el.ncodigo, el.vusuario)}>
+                                            <button  className='btn btn-outline-danger ms-1' onClick={() => handleDeleteUser(el.ncodigo, el.vusuario)}>
                                                 <i className='fa-solid fa-trash'></i>
                                             </button>
                                         </div>
