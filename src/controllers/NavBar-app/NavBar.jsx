@@ -23,10 +23,6 @@ const linksAdmin = [
         name: 'Creación Usuarios',
         path: '/user'
     },
-    {
-        name: 'Configuración Privilegios',
-        path: '/config'
-    }
 ]
 
 const rutasRegistradas = links.map(link => link.path);

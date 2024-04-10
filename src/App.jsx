@@ -5,7 +5,6 @@ import Home from './controllers/Home-app/Home';
 import { GlobalStateProvider } from './Hook/useProvaider';
 import Products from './controllers/Producto-app/Products';
 import NavBar from './controllers/NavBar-app/NavBar';
-import Administracion from './controllers/Administracion-app/Administracion';
 import SessionExperi from './controllers/other/SessionExperi';
 import ProtectedPageAdmins from './controllers/other/ProtectedPageAdmins';
 import NotFoundPage from './controllers/other/Page404.jsx';
@@ -53,9 +52,7 @@ function App() {
                 <Route path="/product" element={<Products />} />
                 <Route path='/upload' element={<ImageUpload/>}></Route>
                 <Route element={<ProtectedPageAdmins />}>
-                  <Route path="/administrador" element={<Administracion />} />
                   <Route path="/user" element={<Usuarios />} />
-                  <Route path="/config" element={<ConfigPrivg />} />
                 </Route>
               </Route>
             </Route>
