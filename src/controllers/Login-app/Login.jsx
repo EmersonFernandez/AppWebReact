@@ -93,7 +93,7 @@ function Formulario({onLogin ,isLoggedIn}) {
             <div className='App' style={{background:'#f0f2f5'}}>
                 <div className='d-flex justify-content-center align-items-center vh-100'>
                     <div className='border border-light bg-body p-3 shadow rounded me-3 ms-3'>
-                        <form onSubmit={handleSubmit}>
+                        <form onSubmit={handleSubmit} className='mb-2'>
                             <div className='form text-center'>
                                 <p className='h5'>Inicio Sesión</p>
                                 <div className='mb-3'>
@@ -112,12 +112,14 @@ function Formulario({onLogin ,isLoggedIn}) {
                                 </div>
                             </div>
                         </form>
+                        <center><span style={{fontStyle:'italic'}}>creator by @emerson</span></center>
                     </div>
                 </div>
             </div>
         </>
     )
 }
+
 
 
 export default Formulario;
