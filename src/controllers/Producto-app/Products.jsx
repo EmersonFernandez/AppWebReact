@@ -16,7 +16,7 @@ function Products() {
     const [btnText, setBtnText] = useState('Guardar');
     const [operacion, setOperacion] = useState(1);
     const [productos, setProductos] = useState([]);
-    
+
     const [disabled, setDisabled] = useState({
         addDisabled: false,
         updateDisabled: false,
@@ -82,12 +82,12 @@ function Products() {
             const formData = new FormData();
             formData.append('image', file); // Agrega el archivo de imagen al FormData
             formData.append('codigo', idProduct); // Agrega el campo 'codigo'
-                const response = await axios.post('https://apinodeexpressfirst-production.up.railway.app/api/imgproductos/upload', formData, {
-                    headers: {
-                        'Content-Type': 'multipart/form-data',
-                    },
-                    withCredentials: true, // Incluir credenciales en la solicitud
-                });
+            const response = await axios.post('https://apinodeexpressfirst-production.up.railway.app/api/imgproductos/upload', formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
+                withCredentials: true, // Incluir credenciales en la solicitud
+            });
         } catch (error) {
             console.error('Error al cargar la imagen:', error);
         }
@@ -139,16 +139,16 @@ function Products() {
                     },
                     { withCredentials: true, });
 
-                    if (file) {
-                        await addImgProductos(form.codigo);
-                    }
-                
+                if (file) {
+                    await addImgProductos(form.codigo);
+                }
+
 
                 if (respuesta.data.error === false) {
                     document.getElementById('modalClose').click();
                     SweetAlertGenerteWithToast(respuesta.data.message, 'success');
                     showProducts();
-                    
+
                 } else if (respuesta.data.error === true) {
                     SweetAlertGenerteWithToast('Error al actualizar el regsitro', 'error');
                 }
@@ -197,18 +197,20 @@ function Products() {
 
     return (
         <>
-            <div className='--box--'>
+            <div className='container'>
                 {/* btn crear */}
                 <BtnCreate disabled={disabled} openModal={openModal} />
                 {/* tabla de visualizacion de los productos */}
-                <TableProducts
-                    url={url}
-                    setDisabled={setDisabled}
-                    disabled={disabled}
-                    openModal={openModal}
-                    showProducts={showProducts}
-                    productos={productos}
+                <div>
+                    <TableProducts
+                        url={url}
+                        setDisabled={setDisabled}
+                        disabled={disabled}
+                        openModal={openModal}
+                        showProducts={showProducts}
+                        productos={productos}
                     />
+                </div>
             </div>
             <ModalProduct
                 form={form}
@@ -217,7 +219,7 @@ function Products() {
                 btnText={btnText}
                 addAndUpdate={handleOnClickAddUpdate}
                 handleFileChange={handleFileChange}
-                />
+            />
         </>
     )
 }
