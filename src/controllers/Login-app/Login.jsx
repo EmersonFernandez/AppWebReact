@@ -4,6 +4,7 @@ import { SpinnerIcon } from '../../funcions/spinner';
 import {useNavigate} from 'react-router-dom'
 import './Login.css'
 import {SweetAlertGenerteWithToast} from '../../funcions/sweet-alert'
+const apiUrl = import.meta.env.REACT_APP_API_URL;
 
 
 function Formulario({onLogin ,isLoggedIn}) {
@@ -26,7 +27,8 @@ function Formulario({onLogin ,isLoggedIn}) {
         }
     },[isLoggedIn])
 
-    let ulrLogin = 'https://apinodeexpressfirst-production.up.railway.app/api/login';
+   let ulrLogin = 'https://apinodeexpressfirst-production.up.railway.app/api/login';
+    // let ulrLogin =  `${apiUrl}/login`;
     const [loanding, setLoanding] = useState(false);
     const history = useNavigate();
 
