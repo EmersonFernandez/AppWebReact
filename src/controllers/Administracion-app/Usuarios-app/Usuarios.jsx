@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 import {axiosDataGet} from '../../../funcions/axiosDatas'
 import {SweetAlertGenerteWithToast} from '../../../funcions/sweet-alert'
-
+import Swal from 'sweetalert2'
 
 
 
