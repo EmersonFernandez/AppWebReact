@@ -27,8 +27,8 @@ function Formulario({onLogin ,isLoggedIn}) {
         }
     },[isLoggedIn])
 
-   let ulrLogin = 'https://apinodeexpressfirst-production.up.railway.app/api/login';
-    // let ulrLogin =  `${apiUrl}/login`;
+//    let ulrLogin = 'https://apinodeexpressfirst-production.up.railway.app/api/login';
+    let ulrLogin =  `${apiUrl}/login`;
     const [loanding, setLoanding] = useState(false);
     const history = useNavigate();
 
