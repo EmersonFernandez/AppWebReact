@@ -11,13 +11,13 @@ export const GlobalStateProvider = ({ children }) => {
         const fetchData = async () => {
             try {
                 //  const response = await axios.get(`${apiUrl}/dataUserConectado`, { withCredentials: true });
-                const response = await axios.get('https://apinodeexpressfirst-production.up.railnway.app/api/dataUserConectado', { withCredentials: true });
+                const response = await axios.get('https://apinodeexpressfirst-production.up.railway.app/api/dataUserConectado', { withCredentials: true });
                 // Sólo actualiza el estado si los datos han cambiado
                 // console.log(apiUrl);
                 console.log('data user con exito');
-                // if (JSON.stringify(globalState.data) !== JSON.stringify(response.data.dataUser) || globalState.error !== response.data.error) {
-                //     setGlobalState({ data: response.data.dataUser, error: response.data.error });
-                // }
+                if (JSON.stringify(globalState.data) !== JSON.stringify(response.data.dataUser) || globalState.error !== response.data.error) {
+                    setGlobalState({ data: response.data.dataUser, error: response.data.error });
+                }
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
