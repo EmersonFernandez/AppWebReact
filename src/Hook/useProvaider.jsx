@@ -1,6 +1,5 @@
 import axios from 'axios';
 import React, { createContext, useContext, useEffect, useState } from 'react';
-// const apiUrl = import.meta.env.REACT_APP_API_URL;
 // para el estados globales globales 
 const GlobalStateContext = createContext();
 
@@ -15,6 +14,7 @@ export const GlobalStateProvider = ({ children }) => {
                 const response = await axios.get('https://apinodeexpressfirst-production.up.railnway.app/api/dataUserConectado', { withCredentials: true });
                 // Sólo actualiza el estado si los datos han cambiado
                 // console.log(apiUrl);
+                console.log('data user con exito');
                 if (JSON.stringify(globalState.data) !== JSON.stringify(response.data.dataUser) || globalState.error !== response.data.error) {
                     setGlobalState({ data: response.data.dataUser, error: response.data.error });
                 }
