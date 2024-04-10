@@ -267,6 +267,8 @@ function Usuarios() {
                         SweetAlertGenerteWithToast(response.data.errorMessage,'error');
                     }else{
                         SweetAlertGenerteWithToast(response.data.message,'success');
+                        axiosUser();
+
                     }
                 } catch (error) {
                     console.log('error eliminar usuario ',error);
@@ -283,7 +285,7 @@ function Usuarios() {
     return (
         <>
             <div className='container'>
-                <div>
+                <div className='mb-2'>
                     <BtnCrear openModal={openModal}/>
                 </div>
                 <div>
