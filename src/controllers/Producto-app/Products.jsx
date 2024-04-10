@@ -208,7 +208,6 @@ function Products() {
                     openModal={openModal}
                     showProducts={showProducts}
                     productos={productos}
-                    update={update}
                     />
             </div>
             <ModalProduct
