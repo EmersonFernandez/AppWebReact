@@ -17,7 +17,7 @@ function BtnCrear({openModal}) {
     </>
 }
 
-function TablesUsuarios({dataUsers,openModal}) {
+function TablesUsuarios({dataUsers,openModal,handleDeleteUser}) {
     return (
         <>
             <div className='table-responsive'>
@@ -49,7 +49,7 @@ function TablesUsuarios({dataUsers,openModal}) {
                                             <button  className='btn btn-outline-warning me-1' data-bs-toggle='modal' data-bs-target='#modalUsuario' onClick={() => openModal(2,dataUsers.results[id])}>
                                                 <i className='fa-solid fa-edit'></i>
                                             </button>
-                                            <button  className='btn btn-outline-danger ms-1'>
+                                            <button  className='btn btn-outline-danger ms-1' onClick={handleDeleteUser(el.ncodigo, el.vusuario)}>
                                                 <i className='fa-solid fa-trash'></i>
                                             </button>
                                         </div>
@@ -249,6 +249,37 @@ function Usuarios() {
         }
     }
 
+    const handleDeleteUser = async (id,nombre) => {
+        
+        Swal.fire({
+            title: '¿Seguro que quieres eliminar el usuario ' + nombre + ' ?',
+            icon: 'question',
+            text: 'No se recuperar esta información',
+            showCancelButton: true,
+            confirmButtonText: 'Si, eliminar',
+            cancelButtonText: 'Calcelar'
+
+        }).then(async (respuesta) => {
+            if (respuesta.isConfirmed) {
+                try {
+                    const response  = await axios.delete(`${url}/${id}`,{withCredentials:true});
+                    if(response.data.error){
+                        SweetAlertGenerteWithToast(response.data.errorMessage,'error');
+                    }else{
+                        SweetAlertGenerteWithToast(response.data.message,'success');
+                    }
+                } catch (error) {
+                    console.log('error eliminar usuario ',error);
+                    SweetAlertGenerteWithToast('Ocurrrio un error en el serviddor.\n comuniquece con el administrador','error');
+                }
+
+            } else {
+                SweetAlertGenerteWithToast('El usuario no fue eliminado', 'info');
+            }
+        })
+
+    }
+
     return (
         <>
             <div className='container'>
@@ -256,7 +287,11 @@ function Usuarios() {
                     <BtnCrear openModal={openModal}/>
                 </div>
                 <div>
-                    <TablesUsuarios dataUsers={dataUsers} openModal={openModal}/>
+                    <TablesUsuarios 
+                    dataUsers={dataUsers} 
+                    openModal={openModal}
+                    handleDeleteUser={handleDeleteUser}
+                    />
                 </div>
             </div>
             <ModalUsuario 
