@@ -100,8 +100,9 @@
 }
 
 .delete{
-    margin-right:5px;
+    margin:0 5px;
     background-color: #dc3545;
+    border-radius: 2px;
 }
 
 .btn-danger {
@@ -128,6 +129,11 @@
     z-index: 999;
 }
 
+.cart-icon .total{
+    position: absolute;
+    top: -1.3rem;
+    left: -1.3rem;
+}
 .cart.show {
     display: block;
 }
