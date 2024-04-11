@@ -131,7 +131,7 @@ function CarProducts() {
             <div className={`cart ${showCart ? 'show' : ''}`}>
                 <h2>Carrito de Compras</h2>
                 {cartItems.length === 0 ? (
-                    <p>El carrito está vacío.</p>
+                    <p style={{fontStyle:'italic'}}>El carrito está vacío.</p>
                 ) : (
                     <div>
                         {cartItems.map(item => (
