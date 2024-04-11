@@ -91,7 +91,7 @@ function CarProducts() {
     const removeFromCart = (productName) => {
         const updatedCartItems = cartItems.filter(item => item.vnombre !== productName);
         setCartItems(updatedCartItems);
-        TotalPagoProductos(); // Actualiza el total después de remover del carrito
+        TotalPagoProductos(updatedCartItems); // Actualiza el total después de remover del carrito
     };
 
     const increaseQuantity = (productName) => {
@@ -102,7 +102,7 @@ function CarProducts() {
             return item;
         });
         setCartItems(updatedCartItems);
-        TotalPagoProductos(); // Actualiza el total después de incrementar la cantidad
+        TotalPagoProductos(updatedCartItems); // Actualiza el total después de incrementar la cantidad
     };
 
     const decreaseQuantity = (productName) => {
@@ -113,7 +113,7 @@ function CarProducts() {
             return item;
         });
         setCartItems(updatedCartItems);
-        TotalPagoProductos(10); // Actualiza el total después de decrementar la cantidad
+        TotalPagoProductos(updatedCartItems); // Actualiza el total después de decrementar la cantidad
     };
 
     return (
