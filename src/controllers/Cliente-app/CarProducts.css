@@ -167,6 +167,8 @@
 .pago{
     display: flex;
     justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
 }
 .pago button{
     padding: 5px 10px;
