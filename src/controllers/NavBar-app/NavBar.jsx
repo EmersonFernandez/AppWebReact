@@ -64,7 +64,7 @@ function NavBar() {
                                             </li>
                                         )
                                     ))
-                                };
+                                }
                                 {Number(globalState && globalState.data && globalState.data.rol) == 1
                                     ? (
                                         <li className="nav-item dropdown">
@@ -83,7 +83,7 @@ function NavBar() {
                                         </li>
                                     ) : null
 
-                                };
+                                }
                             </ul>
                             <div className="d-flex">
                                 <div className="nav-item dropdown">
