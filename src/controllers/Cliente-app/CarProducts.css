@@ -67,8 +67,7 @@
 .button{
     border: none;
     outline: none;
-    font-weight:700;
-    font-size: 1.5rem;
+    font-weight:bold;
 }
 
 .btn-danger {
