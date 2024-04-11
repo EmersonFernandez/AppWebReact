@@ -2,3 +2,10 @@
     position: relative;
     cursor: pointer;
 }
+
+.car-shopping .total{
+    position: absolute;
+    top: -0.3rem;
+    right: -0.3rem;
+    border: 1px solid red;
+}
