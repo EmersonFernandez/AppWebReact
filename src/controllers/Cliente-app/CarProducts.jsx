@@ -60,7 +60,9 @@ function CarProducts() {
 
     const TotalPagoProductos = (total) => {
         // Calcula el total de pago sumando los precios de los productos en el carrito
-        
+        cartItems.map(item => (
+            console.log('Nombre : ', item.vnombre , ' Precios : ', item.nprecio , ' quantity : ', item.quantity)
+        ))
 
         // Actualiza el estado totalPago con el total calculado
         setTotalPago(total);
