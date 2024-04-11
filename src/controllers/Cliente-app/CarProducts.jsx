@@ -58,8 +58,8 @@ function CarProducts() {
         showProducts();
     }, []);
 
-    const TotalPagoProductos = (cartItemss) => {
-        const total = cartItemss.reduce((accumulator, item) => {
+    const TotalPagoProductos = async (cartItemss) => {
+        const total = await cartItemss.reduce((accumulator, item) => {
             return accumulator + Number(item.nprecio) * item.quantity;
         }, 0);
     
@@ -133,7 +133,7 @@ function CarProducts() {
                                     >
                                         Añadir al Carrito
                                     </button>
-                                    {console.log(cartItems)}
+                                    {/* {console.log(cartItems)} */}
                                 </div>
                             </div>
                         ))}
