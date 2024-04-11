@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './CarProducts.css'; // Importa estilos CSS para el componente
 
-// obtenemos la imagen
 function Imagen({ id }) {
     const [imageData, setImageData] = useState(null);
 
@@ -35,7 +34,6 @@ function Imagen({ id }) {
     );
 }
 
-// 
 function CarProducts() {
     const url = 'https://apinodeexpressfirst-production.up.railway.app/api/producto';
     const [cartItems, setCartItems] = useState([]);
@@ -61,41 +59,31 @@ function CarProducts() {
     }, []);
 
     const TotalPagoProductos = () => {
-        // Inicializa una variable para almacenar el total de pago
-        let total = 0;
-    
-        // Calcula el total de pago iterando sobre cartItems usando .map()
-        const pagar = cartItems.map(item => {
-            // Calcula el subtotal por cada item y acumula en total
-            total += item.nprecio * item.quantity;
-            // Devuelve el subtotal (aunque en este caso no necesitas devolver nada)
-            return total;
-        });
-    
-        console.log(pagar);
-    };
-    
+        // Calcula el total de pago sumando los precios de los productos en el carrito
+        const total = cartItems.reduce((acc, item) => {
+            return acc + (item.nprecio * item.quantity);
+        }, 0);
 
-    // añadimos al carrito
+        // Actualiza el estado totalPago con el total calculado
+        setTotalPago(total);
+    };
+
     const addToCart = (productName, productPrice) => {
         const alreadyInCart = cartItems.find(item => item.vnombre === productName);
 
         if (!alreadyInCart) {
             const newItem = { vnombre: productName, nprecio: productPrice, quantity: 1 };
             setCartItems([...cartItems, newItem]);
+            TotalPagoProductos(); // Actualiza el total después de agregar al carrito
         }
-
-        TotalPagoProductos();
     };
 
-
-    // removemos el producto del carro
     const removeFromCart = (productName) => {
         const updatedCartItems = cartItems.filter(item => item.vnombre !== productName);
         setCartItems(updatedCartItems);
+        TotalPagoProductos(); // Actualiza el total después de remover del carrito
     };
 
-    // incremetamos la cantida de un producto
     const increaseQuantity = (productName) => {
         const updatedCartItems = cartItems.map(item => {
             if (item.vnombre === productName) {
@@ -104,10 +92,9 @@ function CarProducts() {
             return item;
         });
         setCartItems(updatedCartItems);
-        TotalPagoProductos();
+        TotalPagoProductos(); // Actualiza el total después de incrementar la cantidad
     };
 
-    // disminuimos la cantidad de un producto
     const decreaseQuantity = (productName) => {
         const updatedCartItems = cartItems.map(item => {
             if (item.vnombre === productName && item.quantity > 1) {
@@ -116,11 +103,10 @@ function CarProducts() {
             return item;
         });
         setCartItems(updatedCartItems);
-        TotalPagoProductos();
+        TotalPagoProductos(); // Actualiza el total después de decrementar la cantidad
     };
 
     return (
-        // inicio del html
         <>
             <div className='product-catalog-and-cart'>
                 <div className='catalog'>
@@ -145,16 +131,15 @@ function CarProducts() {
                 </div>
             </div>
 
-            {/* Icono de carrito para mostrar/ocultar el carrito */}
             <div className='cart-icon' onClick={() => setShowCart(!showCart)}>
                 <i className='bi bi-cart'></i>
-                <span className='total'>{Object.keys(cartItems).length}</span>
+                <span className='total'>{cartItems.length}</span>
             </div>
-            {/* Carrito de Compras */}
+
             <div className={`cart ${showCart ? 'show' : ''}`}>
                 <h3>Carrito de Compras</h3>
                 {cartItems.length === 0 ? (
-                    <p style={{fontStyle:'italic'}}>El carrito está vacío.</p>
+                    <p style={{ fontStyle: 'italic' }}>El carrito está vacío.</p>
                 ) : (
                     <div>
                         {cartItems.map(item => (
@@ -178,7 +163,7 @@ function CarProducts() {
                             </div>
                         ))}
                         <div className='pago'>
-                            <span>total : ${totalPago} </span>
+                            <span>Total: ${totalPago}</span>
                             <button className='btn btn-success'>Pagar</button>
                         </div>
                     </div>
@@ -187,6 +172,5 @@ function CarProducts() {
         </>
     );
 }
-
 
 export default CarProducts;
