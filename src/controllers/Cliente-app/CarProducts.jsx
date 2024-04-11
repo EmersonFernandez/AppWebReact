@@ -89,16 +89,16 @@ function CarProducts({ productsData }) {
                                     <span className='cart-item-price'>${item.nprecio}</span>
                                 </div>
                                 <div className='cart-item-actions'>
-                                    <button className='button bg-success'
+                                    <button className='button'
                                         onClick={() => decreaseQuantity(item.vnombre)}
                                     >
-                                        <i className="bi bi-caret-left text-success"></i>
+                                        <i className="bi bi-caret-left text-success bg-success"></i>
                                     </button>
                                     <span className='cart-item-quantity'>{item.quantity}</span>
-                                    <button className='button bg-success'
+                                    <button className='button'
                                         onClick={() => increaseQuantity(item.vnombre)}
                                     >
-                                        <i class="bi bi-caret-right text-success"></i>
+                                        <i class="bi bi-caret-right text-success bg-success"></i>
                                     </button>
                                     <button
                                         className='btn btn-danger'
