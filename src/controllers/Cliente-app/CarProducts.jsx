@@ -60,8 +60,10 @@ function CarProducts() {
 
     const TotalPagoProductos = (total) => {
         // Calcula el total de pago sumando los precios de los productos en el carrito
+        let valor = 0;
         cartItems.map(item => (
-            console.log('Nombre : ', item.vnombre , ' Precios : ', item.nprecio , ' quantity : ', item.quantity)
+            valor = valor + item.nprecio
+            // console.log('Nombre : ', item.vnombre , ' Precios : ', item.nprecio , ' quantity : ', item.quantity)
         ))
 
         // Actualiza el estado totalPago con el total calculado
@@ -74,7 +76,7 @@ function CarProducts() {
         if (!alreadyInCart) {
             const newItem = { vnombre: productName, nprecio: productPrice, quantity: 1 };
             setCartItems([...cartItems, newItem]);
-            TotalPagoProductos(20); // Actualiza el total después de agregar al carrito
+            TotalPagoProductos(20); 
         }
     };
 
