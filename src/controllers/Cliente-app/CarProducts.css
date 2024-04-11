@@ -64,12 +64,11 @@
     margin: 0 10px;
 }
 
-/* .btn-secondary {
-    background-color: #6c757d;
-    border-color: #6c757d;
-    color: #fff;
-    margin-right: 5px;
-} */
+.button{
+    border: none;
+    outline: none;
+    font-weight: 700;
+}
 
 .btn-danger {
     background-color: #dc3545;
