@@ -88,7 +88,7 @@ function NavBar() {
                             </ul>
                             
                             <div className='d-flex me-5 car-shopping'>
-                                <span className='text-white fs-5 spam-icon'><i class="bi bi-cart"></i></span>
+                                <span className='text-white fs-5 spam-icon'><i className="bi bi-cart"></i></span>
                                 <span className='text-white total'>0</span>
                             </div>
                             <div className="d-flex">

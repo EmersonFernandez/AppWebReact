@@ -18,14 +18,12 @@ function CarProducts({ productsData }) {
 
     useEffect(() => {
         showProducts();
-    },[])
-
+    }, [])
 
     const addToCart = (productName, productPrice) => {
         const alreadyInCart = cartItems.find(item => item.vnombre === productName);
 
         if (!alreadyInCart) {
-            // Si el producto no está en el carrito, lo añade con cantidad inicial 1
             const newItem = { vnombre: productName, nprecio: productPrice, quantity: 1 };
             setCartItems([...cartItems, newItem]);
         }
@@ -36,28 +34,43 @@ function CarProducts({ productsData }) {
         setCartItems(updatedCartItems);
     };
 
+    const increaseQuantity = (productName) => {
+        const updatedCartItems = cartItems.map(item => {
+            if (item.vnombre === productName) {
+                return { ...item, quantity: item.quantity + 1 };
+            }
+            return item;
+        });
+        setCartItems(updatedCartItems);
+    };
+
+    const decreaseQuantity = (productName) => {
+        const updatedCartItems = cartItems.map(item => {
+            if (item.vnombre === productName && item.quantity > 1) {
+                return { ...item, quantity: item.quantity - 1 };
+            }
+            return item;
+        });
+        setCartItems(updatedCartItems);
+    };
+
     return (
         <div className='product-catalog-and-cart'>
             <div className='catalog'>
                 <h2>Lista de Productos</h2>
-                <div className='row'>
-                    {console.log(productos)}
+                <div className='product-grid'>
                     {productos && productos.map(product => (
-                        <div key={product.id} className='col-md-4 mb-3'>
-                            <div className='card'>
-                                <img src={product.ncodigo} className='card-img-top' alt={product.vnombre} />
-                                <div className='card-body'>
-                                    <h5 className='card-title'>{product.vnombre}</h5>
-                                    <p className='card-text'>Precio: ${product.nprecio}</p>
-                                    <button
-                                        className='btn btn-primary mr-2'
-                                        onClick={() => addToCart(product.vnombre, product.nprecio)}
-                                    >
-                                        Añadir al Carrito
-                                    </button>
-                                    {/* Botón para ver más detalle del producto */}
-                                    <button className='btn btn-secondary'>Ver más</button>
-                                </div>
+                        <div key={product.id} className='product-card'>
+                            <img src={product.ncodigo} alt={product.vnombre} />
+                            <div className='product-info'>
+                                <h5>{product.vnombre}</h5>
+                                <p>Precio: ${product.nprecio}</p>
+                                <button
+                                    className='btn btn-primary'
+                                    onClick={() => addToCart(product.vnombre, product.nprecio)}
+                                >
+                                    Añadir al Carrito
+                                </button>
                             </div>
                         </div>
                     ))}
@@ -76,7 +89,19 @@ function CarProducts({ productsData }) {
                                     <span className='cart-item-price'>${item.nprecio}</span>
                                 </div>
                                 <div className='cart-item-actions'>
-                                    <span className='cart-item-quantity'>Cantidad: {item.quantity}</span>
+                                    <button
+                                        className='btn btn-secondary'
+                                        onClick={() => decreaseQuantity(item.vnombre)}
+                                    >
+                                        <i className="bi bi-caret-left text-success"></i>
+                                    </button>
+                                    <span className='cart-item-quantity'>{item.quantity}</span>
+                                    <button
+                                        className='btn btn-secondary'
+                                        onClick={() => increaseQuantity(item.vnombre)}
+                                    >
+                                        <i class="bi bi-caret-right text-success"></i>
+                                    </button>
                                     <button
                                         className='btn btn-danger'
                                         onClick={() => removeFromCart(item.vnombre)}
