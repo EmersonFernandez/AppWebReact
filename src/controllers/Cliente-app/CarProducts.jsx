@@ -175,7 +175,7 @@ function CarProducts() {
                         ))}
                         <div className='pago'>
                             <span>Total: ${totalPago}</span>
-                            <button className='btn btn-success' onClick={() => generatePedido}>Generar pedido</button>
+                            <button className='btn btn-success' onClick={() => generatePedido()}>Generar pedido</button>
                         </div>
                     </div>
                 )}
