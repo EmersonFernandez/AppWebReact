@@ -155,6 +155,10 @@ function CarProducts() {
                                 </div>
                             </div>
                         ))}
+                        <div>
+                            <p>total : $ </p>
+                            <button className='btn btn-success button'>Pagar</button>
+                        </div>
                     </div>
                 )}
             </div>
