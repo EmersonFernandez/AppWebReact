@@ -157,7 +157,7 @@ function CarProducts() {
                         ))}
                         <div className='pago'>
                             <p>total : $374.4394 </p>
-                            <button className='btn btn-success button'>Pagar</button>
+                            <button className='btn btn-success'>Pagar</button>
                         </div>
                     </div>
                 )}
