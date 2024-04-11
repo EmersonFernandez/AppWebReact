@@ -170,7 +170,7 @@ function CarProducts() {
                         ))}
                         <div className='pago'>
                             <span>Total: ${totalPago}</span>
-                            <button className='btn btn-success' onClick={() => SweetAlertSimple('Pago realizado','success')}>Pagar</button>
+                            <button className='btn btn-success' onClick={() => SweetAlertSimple('Pedido realizado','success')}>Generar pedido</button>
                         </div>
                     </div>
                 )}
