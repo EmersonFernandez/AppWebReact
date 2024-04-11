@@ -122,6 +122,7 @@ function CarProducts() {
                                     >
                                         Añadir al Carrito
                                     </button>
+                                    {console.log(cartItems)}
                                 </div>
                             </div>
                         ))}
