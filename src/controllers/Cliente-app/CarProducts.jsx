@@ -58,14 +58,12 @@ function CarProducts() {
         showProducts();
     }, []);
 
-    const TotalPagoProductos = (total) => {
-        // Calcula el total de pago sumando los precios de los productos en el carrito
-        let valor = 0;
-        cartItems.map(item => (
-            valor = valor + Number(item.nprecio)
-            // console.log('Nombre : ', item.vnombre , ' Precios : ', item.nprecio , ' quantity : ', item.quantity)
-        ))
-
+    const TotalPagoProductos = () => {
+        // Calcula el total sumando los precios de los productos en el carrito
+        const valor = cartItems.reduce((total, item) => {
+            return total + Number(item.nprecio) * item.quantity;
+        }, 0);
+    
         // Actualiza el estado totalPago con el total calculado
         setTotalPago(valor);
     };
@@ -76,14 +74,14 @@ function CarProducts() {
         if (!alreadyInCart) {
             const newItem = { vnombre: productName, nprecio: productPrice, quantity: 1 };
             setCartItems([...cartItems, newItem]);
-            TotalPagoProductos(20); 
+            TotalPagoProductos(); 
         }
     };
 
     const removeFromCart = (productName) => {
         const updatedCartItems = cartItems.filter(item => item.vnombre !== productName);
         setCartItems(updatedCartItems);
-        TotalPagoProductos(0); // Actualiza el total después de remover del carrito
+        TotalPagoProductos(); // Actualiza el total después de remover del carrito
     };
 
     const increaseQuantity = (productName) => {
@@ -94,7 +92,7 @@ function CarProducts() {
             return item;
         });
         setCartItems(updatedCartItems);
-        TotalPagoProductos(20); // Actualiza el total después de incrementar la cantidad
+        TotalPagoProductos(); // Actualiza el total después de incrementar la cantidad
     };
 
     const decreaseQuantity = (productName) => {
