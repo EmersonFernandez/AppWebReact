@@ -132,7 +132,8 @@
 .cart-icon .total{
     position: absolute;
     top: -1.3rem;
-    left: -1.3rem;
+    left: 1.3rem;
+    font-weight: 700;
 }
 .cart.show {
     display: block;
