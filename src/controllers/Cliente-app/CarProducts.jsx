@@ -126,7 +126,7 @@ function CarProducts() {
             {/* Icono de carrito para mostrar/ocultar el carrito */}
             <div className='cart-icon' onClick={() => setShowCart(!showCart)}>
                 <i className='bi bi-cart'></i>
-                <span className='total'>0</span>
+                <span className='total'>{Object.keys(cartItems).length}</span>
             </div>
             {/* Carrito de Compras */}
             <div className={`cart ${showCart ? 'show' : ''}`}>
