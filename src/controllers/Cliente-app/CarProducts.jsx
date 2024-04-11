@@ -2,6 +2,42 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './CarProducts.css'; // Importa estilos CSS para el componente
 
+
+function Imagen({ id }) {
+    const [imageData, setImageData] = useState(null);
+
+    useEffect(() => {
+        const fetchImage = async () => {
+            try {
+                const response = await axios.get(`https://apinodeexpressfirst-production.up.railway.app/api/imgproductos/image/${id}`, { withCredentials: true });
+
+                // Verifica si la respuesta indica que no hay imagen disponible
+                if (response.data.status === 400 || response.data.status === 500) {
+                    setImageData(null); // Establece imageData en null si no hay imagen
+                } else {
+                    // Si hay una imagen disponible, actualiza imageData con la URL de la imagen
+                    const imageUrl = `https://apinodeexpressfirst-production.up.railway.app/api/imgproductos/image/${id}`;
+                    setImageData(imageUrl);
+                }
+            } catch (error) {
+                console.error('Error al recuperar la imagen:', error);
+            }
+        };
+        fetchImage();
+    }, [id]);
+
+    return (
+        <div>
+            {imageData ? (
+                // Si hay imageData (URL de la imagen), muestra la imagen
+                <img src={imageData} alt={'No imagen'} />
+            ) : (
+                <img src='https://img.freepik.com/vector-premium/vector-icono-imagen-predeterminado-pagina-imagen-faltante-diseno-sitio-web-o-aplicacion-movil-no-hay-foto-disponible_87543-11093.jpg'/>
+            )}
+        </div>
+    );
+}
+
 function CarProducts({ productsData }) {
     const url = 'https://apinodeexpressfirst-production.up.railway.app/api/producto';
     const [cartItems, setCartItems] = useState([]);
@@ -18,7 +54,7 @@ function CarProducts({ productsData }) {
 
     useEffect(() => {
         showProducts();
-    }, [])
+    }, []);
 
     const addToCart = (productName, productPrice) => {
         const alreadyInCart = cartItems.find(item => item.vnombre === productName);
@@ -60,8 +96,8 @@ function CarProducts({ productsData }) {
                 <h2>Lista de Productos</h2>
                 <div className='product-grid'>
                     {productos && productos.map(product => (
-                        <div key={product.id} className='product-card'>
-                            <img src={product.ncodigo} alt={product.vnombre} />
+                        <div key={product.ncodigo} className='product-card'>
+                            <Imagen id={product.ncodigo}/>
                             <div className='product-info'>
                                 <h5>{product.vnombre}</h5>
                                 <p>Precio: ${product.nprecio}</p>
@@ -85,7 +121,7 @@ function CarProducts({ productsData }) {
                         {cartItems.map(item => (
                             <div key={item.vnombre} className='cart-item'>
                                 <div className='cart-item-info'>
-                                    <span className='cart-item-name'>{item.vnombre}</span>
+                                    <span className='cart-item-name me-5'>{item.vnombre}</span>
                                     <span className='cart-item-price'>${item.nprecio}</span>
                                 </div>
                                 <div className='cart-item-actions'>
