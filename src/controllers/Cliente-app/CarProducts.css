@@ -2,13 +2,13 @@
 
 .product-catalog-and-cart {
     display: flex;
-    flex-direction: column;
     margin-top: 20px;
     position: relative;
 }
 
-.catalog,
-.cart {
+.catalog
+/* ,.cart */
+{
     width: 100%;
     padding: 20px;
     border: 1px solid #ccc;
@@ -20,13 +20,14 @@
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Ajusta el tamaño mínimo y máximo de las tarjetas */
     gap: 20px;
-    width: 100%; /* Asegura que ocupe todo el ancho disponible */
+    width: 100%; 
+    height: 400px;/* Asegura que ocupe todo el ancho disponible */
 }
 
 .product-card {
     border: 1px solid #ddd;
     border-radius: 8px;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .product-card img {

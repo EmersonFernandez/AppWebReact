@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './CarProducts.css'; // Importa estilos CSS para el componente
 
+// obtenemos la imagen
 function Imagen({ id }) {
     const [imageData, setImageData] = useState(null);
 
@@ -34,7 +35,8 @@ function Imagen({ id }) {
     );
 }
 
-function CarProducts({ productsData }) {
+// 
+function CarProducts() {
     const url = 'https://apinodeexpressfirst-production.up.railway.app/api/producto';
     const [cartItems, setCartItems] = useState([]);
     const [productos, setProductos] = useState([]);
@@ -57,6 +59,7 @@ function CarProducts({ productsData }) {
         showProducts();
     }, []);
 
+    // añadimos al carrito
     const addToCart = (productName, productPrice) => {
         const alreadyInCart = cartItems.find(item => item.vnombre === productName);
 
@@ -66,11 +69,13 @@ function CarProducts({ productsData }) {
         }
     };
 
+    // removemos el producto del carro
     const removeFromCart = (productName) => {
         const updatedCartItems = cartItems.filter(item => item.vnombre !== productName);
         setCartItems(updatedCartItems);
     };
 
+    // incremetamos la cantida de un producto
     const increaseQuantity = (productName) => {
         const updatedCartItems = cartItems.map(item => {
             if (item.vnombre === productName) {
@@ -81,6 +86,7 @@ function CarProducts({ productsData }) {
         setCartItems(updatedCartItems);
     };
 
+    // disminuimos la cantidad de un producto
     const decreaseQuantity = (productName) => {
         const updatedCartItems = cartItems.map(item => {
             if (item.vnombre === productName && item.quantity > 1) {
@@ -92,27 +98,31 @@ function CarProducts({ productsData }) {
     };
 
     return (
-        <div className='product-catalog-and-cart'>
-            <div className='catalog'>
-                <h2>Lista de Productos</h2>
-                <div className='product-grid'>
-                    {productos && productos.map(product => (
-                        <div key={product.ncodigo} className='product-card'>
-                            <Imagen id={product.ncodigo}/>
-                            <div className='product-info'>
-                                <h5 className='product-name'>{product.vnombre}</h5>
-                                <p className='product-price'>Precio: ${product.nprecio}</p>
-                                <button
-                                    className='btn btn-primary'
-                                    onClick={() => addToCart(product.vnombre, product.nprecio)}
-                                >
-                                    Añadir al Carrito
-                                </button>
+        // inicio del html
+        <>
+            <div className='product-catalog-and-cart'>
+                <div className='catalog'>
+                    <h2>Lista de Productos</h2>
+                    <div className='product-grid'>
+                        {productos && productos.map(product => (
+                            <div key={product.ncodigo} className='product-card'>
+                                <Imagen id={product.ncodigo} />
+                                <div className='product-info'>
+                                    <h5 className='product-name'>{product.vnombre}</h5>
+                                    <p className='product-price'>Precio: ${product.nprecio}</p>
+                                    <button
+                                        className='btn btn-primary'
+                                        onClick={() => addToCart(product.vnombre, product.nprecio)}
+                                    >
+                                        Añadir al Carrito
+                                    </button>
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        ))}
+                    </div>
                 </div>
             </div>
+
             {/* Icono de carrito para mostrar/ocultar el carrito */}
             <div className='cart-icon' onClick={() => setShowCart(!showCart)}>
                 <i className='bi bi-cart'></i>
@@ -147,7 +157,7 @@ function CarProducts({ productsData }) {
                     </div>
                 )}
             </div>
-        </div>
+        </>
     );
 }
 
