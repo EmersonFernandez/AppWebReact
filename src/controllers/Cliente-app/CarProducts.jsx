@@ -111,6 +111,11 @@ function CarProducts() {
         TotalPagoProductos(updatedCartItems); // Actualiza el total después de decrementar la cantidad
     };
 
+    const generatePedido = () => {
+        SweetAlertSimple('Pedido realizado','success');
+        setCartItems([]);
+    }
+
     return (
         <>
             <div className='product-catalog-and-cart'>
@@ -170,7 +175,7 @@ function CarProducts() {
                         ))}
                         <div className='pago'>
                             <span>Total: ${totalPago}</span>
-                            <button className='btn btn-success' onClick={() => SweetAlertSimple('Pedido realizado','success')}>Generar pedido</button>
+                            <button className='btn btn-success' onClick={() => generatePedido}>Generar pedido</button>
                         </div>
                     </div>
                 )}
