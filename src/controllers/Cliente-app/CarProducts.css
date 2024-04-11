@@ -168,6 +168,9 @@
     display: flex;
     justify-content: space-around;
 }
+.pago button{
+    padding: 5px 10px;
+}
 
 /* Media Query para dispositivos móviles */
 @media (max-width: 768px) {
