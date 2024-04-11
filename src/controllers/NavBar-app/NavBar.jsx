@@ -85,7 +85,7 @@ function NavBar() {
 
                                 }
                             </ul>
-                            <div className='d-flex'>
+                            <div className='d-flex me-5'>
                                 <span className='text-white'><i class="bi bi-cart"></i></span>
                             </div>
                             <div className="d-flex">
