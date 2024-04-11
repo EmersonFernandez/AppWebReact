@@ -60,14 +60,21 @@ function CarProducts() {
         showProducts();
     }, []);
 
-    // total a pagar
-    const TotalPagoProductos = () =>{
-        const pagar = cartItems.map( item => {
-            const total = total + (item.nprecio * item.quantity)
+    const TotalPagoProductos = () => {
+        // Inicializa una variable para almacenar el total de pago
+        let total = 0;
+    
+        // Calcula el total de pago iterando sobre cartItems usando .map()
+        const pagar = cartItems.map(item => {
+            // Calcula el subtotal por cada item y acumula en total
+            total += item.nprecio * item.quantity;
+            // Devuelve el subtotal (aunque en este caso no necesitas devolver nada)
             return total;
         });
-        setTotalPago(pagar);
+    
+        console.log(pagar);
     };
+    
 
     // añadimos al carrito
     const addToCart = (productName, productPrice) => {
