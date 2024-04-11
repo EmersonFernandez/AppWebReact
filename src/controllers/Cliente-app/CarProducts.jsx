@@ -26,7 +26,7 @@ function CarProducts({ productsData }) {
 
         if (!alreadyInCart) {
             // Si el producto no está en el carrito, lo añade con cantidad inicial 1
-            const newItem = { name: productName, price: productPrice, quantity: 1 };
+            const newItem = { vnombre: productName, nprecio: productPrice, quantity: 1 };
             setCartItems([...cartItems, newItem]);
         }
     };
