@@ -58,9 +58,9 @@ function CarProducts() {
         showProducts();
     }, []);
 
-    const TotalPagoProductos = () => {
+    const TotalPagoProductos = (total) => {
         // Calcula el total de pago sumando los precios de los productos en el carrito
-        const total = 10;
+        
 
         // Actualiza el estado totalPago con el total calculado
         setTotalPago(total);
@@ -72,14 +72,14 @@ function CarProducts() {
         if (!alreadyInCart) {
             const newItem = { vnombre: productName, nprecio: productPrice, quantity: 1 };
             setCartItems([...cartItems, newItem]);
-            TotalPagoProductos(); // Actualiza el total después de agregar al carrito
+            TotalPagoProductos(20); // Actualiza el total después de agregar al carrito
         }
     };
 
     const removeFromCart = (productName) => {
         const updatedCartItems = cartItems.filter(item => item.vnombre !== productName);
         setCartItems(updatedCartItems);
-        TotalPagoProductos(); // Actualiza el total después de remover del carrito
+        TotalPagoProductos(0); // Actualiza el total después de remover del carrito
     };
 
     const increaseQuantity = (productName) => {
@@ -90,7 +90,7 @@ function CarProducts() {
             return item;
         });
         setCartItems(updatedCartItems);
-        TotalPagoProductos(); // Actualiza el total después de incrementar la cantidad
+        TotalPagoProductos(20); // Actualiza el total después de incrementar la cantidad
     };
 
     const decreaseQuantity = (productName) => {
@@ -101,7 +101,7 @@ function CarProducts() {
             return item;
         });
         setCartItems(updatedCartItems);
-        TotalPagoProductos(); // Actualiza el total después de decrementar la cantidad
+        TotalPagoProductos(10); // Actualiza el total después de decrementar la cantidad
     };
 
     return (
