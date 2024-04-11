@@ -12,10 +12,6 @@ const links = [
         name: 'Producto',
         path: '/product'
     },
-    // {
-    //     name: 'Administrador',
-    //     path: '/administrador'
-    // },
     {
         name: 'Producto',
         path: '/listproducts'
@@ -26,7 +22,7 @@ const linksAdmin = [
     {
         name: 'Creación Usuarios',
         path: '/user'
-    },
+    }
 ]
 
 const rutasRegistradas = links.map(link => link.path);
