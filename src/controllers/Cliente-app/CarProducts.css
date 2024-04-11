@@ -137,7 +137,7 @@
     width: 30px;
     height: 30px;
     color: #007bff;
-    border: 50%;
+    border-radius: 50%;
     background: white;
 }
 .cart.show {
