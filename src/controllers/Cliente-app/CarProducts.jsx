@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './CarProducts.css'; // Importa estilos CSS para el componente
+import {SweetAlertSimple} from '../../funcions/sweet-alert'
 
 function Imagen({ id }) {
     const [imageData, setImageData] = useState(null);
@@ -79,10 +80,12 @@ function CarProducts() {
             });
             setCartItems(updatedCartItems);
             TotalPagoProductos(updatedCartItems); // Pasar los cartItems actualizados
+            SweetAlertSimple('el producto seleccionado, ya esta en el carrito','info')
         } else {
             const newItem = { vnombre: productName, nprecio: productPrice, quantity: 1 };
             setCartItems([...cartItems, newItem]);
             TotalPagoProductos([...cartItems, newItem]); // Pasar los cartItems actualizados
+            SweetAlertSimple('Producto añadido','success')
         }
     };
 

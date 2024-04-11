@@ -1,10 +1,10 @@
 // funciones de sweet alerts
 import Swal from 'sweetalert2'
 
-export const SessionExperix_alert = (message,text, icon,redirectFunction) => {
+export const SessionExperix_alert = (message, text, icon, redirectFunction) => {
     return Swal.fire({
         title: message,
-        text:text,
+        text: text,
         icon: icon,
         position: 'center',
         showConfirmButton: true,
@@ -28,5 +28,16 @@ export const SweetAlertGenerteWithToast = (message, icon) => {
     })
 }
 
+
+export const SweetAlertSimple = (message,icon) => {
+    Swal.fire({
+        position: "top-end",
+        icon: icon,
+        toast: true,
+        title: message,
+        showConfirmButton: false,
+        timer: 1500
+    });
+}
 
 
