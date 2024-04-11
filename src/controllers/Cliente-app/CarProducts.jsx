@@ -148,7 +148,7 @@ function CarProducts() {
                                     <button className='button' onClick={() => increaseQuantity(item.vnombre)}>
                                         <i className="bi bi-caret-right text-success"></i>
                                     </button>
-                                    <button className='btn btn-danger' onClick={() => removeFromCart(item.vnombre)}>
+                                    <button className='btn btn-danger delete' onClick={() => removeFromCart(item.vnombre)}>
                                         <i className="bi bi-x-square-fill"></i>
                                     </button>
                                 </div>
