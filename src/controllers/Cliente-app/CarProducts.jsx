@@ -41,7 +41,8 @@ function CarProducts({ productsData }) {
             <div className='catalog'>
                 <h2>Lista de Productos</h2>
                 <div className='row'>
-                    {productos.results && productos.resutls.map(product => (
+                    {console.log(productos)}
+                    {productos && productos.map(product => (
                         <div key={product.id} className='col-md-4 mb-3'>
                             <div className='card'>
                                 <img src={product.ncodigo} className='card-img-top' alt={product.vnombre} />
