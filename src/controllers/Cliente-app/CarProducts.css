@@ -131,7 +131,7 @@
 
 .cart-icon .total{
     position: absolute;
-    top: -0.7rem;
+    top: -0.5rem;
     left: 1.9rem;
     font-weight: 700;
     width: 30px;
@@ -139,6 +139,9 @@
     color: #007bff;
     border-radius: 50%;
     background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .cart.show {
     display: block;
