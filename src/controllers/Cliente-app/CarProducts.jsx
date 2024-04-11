@@ -149,7 +149,7 @@ function CarProducts() {
                                         <i className="bi bi-caret-right text-success"></i>
                                     </button>
                                     <button className='btn btn-danger' onClick={() => removeFromCart(item.vnombre)}>
-                                        Eliminar
+                                        <i className="bi bi-x-square-fill"></i>
                                     </button>
                                 </div>
                             </div>
