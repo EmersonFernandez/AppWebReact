@@ -14,6 +14,7 @@ import ConfigPrivg from './controllers/Administracion-app/ConfigPrivg/ConfigPriv
 import NewPassword from './controllers/Login-app/NewPassword.jsx';
 import ProtectPageNewPass from './controllers/other/ProtectPageNewPass.jsx';
 import ImageUpload from './controllers/other/ImageUpload.jsx';
+import CarProducts from './controllers/Cliente-app/CarProducts.jsx';
 
 
 
@@ -50,6 +51,7 @@ function App() {
               <Route element={<ProtectPageNewPass />}>
                 <Route path="/home" element={<Home />} />
                 <Route path="/product" element={<Products />} />
+                <Route path="/listproducts" element={<CarProducts />} />
                 <Route path='/upload' element={<ImageUpload/>}></Route>
                 <Route element={<ProtectedPageAdmins />}>
                   <Route path="/user" element={<Usuarios />} />

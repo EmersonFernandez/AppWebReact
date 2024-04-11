@@ -16,6 +16,10 @@ const links = [
     //     name: 'Administrador',
     //     path: '/administrador'
     // },
+    {
+        name:'Producto',
+        path:'/listproducts'
+    }
 ]
 
 const linksAdmin = [
@@ -47,16 +51,18 @@ function NavBar() {
                         </button>
                         <div className="collapse navbar-collapse" id="navbarSupportedContent">
                             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-                                {Number(globalState && globalState.data && globalState.data.rol) == 1
+                                {Number(globalState && globalState.data && globalState.data.rol) == 2
                                     ? links.map((el, id) => (
-                                        <li className={`nav-item`} key={id}>
-                                            <Link to={el.path} className={`nav-link ${location.pathname === el.path ? 'active' : ''}`}>{el.name}</Link>
-                                        </li>
+                                        el.path == '/listproducts' && (
+                                            <li className={`nav-item`} key={id}>
+                                                <Link to={el.path} className={`nav-link ${location.pathname === el.path ? 'active' : ''}`}>{el.name}</Link>
+                                            </li>
+                                        )
 
                                     ))
                                     :
                                     links.map((el, id) => (
-                                        el.path != '/administrador' && (
+                                        el.path != '/listproducts' && (
                                             <li className={`nav-item`} key={id}>
                                                 <Link to={el.path} className={`nav-link ${location.pathname === el.path ? 'active' : ''}`}>{el.name}</Link>
                                             </li>
