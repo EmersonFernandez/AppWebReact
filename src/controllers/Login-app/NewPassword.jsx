@@ -53,7 +53,10 @@ function NewPassword() {
             if (!dataUser.error) {
                 if (dataUser.results[0].bchangepassword) {
                     setNewPass(true);
-                } else {
+                }else if (Number(dataUser.results[0].rol) == 2) {
+                    navegate('/listproducts');
+                } 
+                else {
                     navegate('/home');
 
                 }

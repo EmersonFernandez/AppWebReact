@@ -6,7 +6,7 @@ import { axiosDataGet } from '../../funcions/axiosDatas';
 function ProtectPageNewPass() {
     // inicializamos el estado
     const [dataUser, setDataUser] = useState({});
-    const [isAdmin, setIsAdmin] = useState(false);
+    const [newPass, setNewPass] = useState(false);
     const alertShown = useRef(false);
 
     // para la navegacion
@@ -32,7 +32,7 @@ function ProtectPageNewPass() {
                     if (dataUser.results[0].bchangepassword) {
                         history('/processlogin');
                     } else {
-                        setIsAdmin(true);
+                        setNewPass(true);
                     }
                 }
             
@@ -42,7 +42,7 @@ function ProtectPageNewPass() {
     },[dataUser])
 
     // valiados si necita el cambio de password
-    return isAdmin ? <Outlet /> : null;
+    return newPass ? <Outlet /> : null;
 
 
 }
