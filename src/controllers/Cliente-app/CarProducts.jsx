@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './CarProducts.css'; // Importa estilos CSS para el componente
 
-
 function Imagen({ id }) {
     const [imageData, setImageData] = useState(null);
 
@@ -11,11 +10,9 @@ function Imagen({ id }) {
             try {
                 const response = await axios.get(`https://apinodeexpressfirst-production.up.railway.app/api/imgproductos/image/${id}`, { withCredentials: true });
 
-                // Verifica si la respuesta indica que no hay imagen disponible
                 if (response.data.status === 400 || response.data.status === 500) {
-                    setImageData(null); // Establece imageData en null si no hay imagen
+                    setImageData(null);
                 } else {
-                    // Si hay una imagen disponible, actualiza imageData con la URL de la imagen
                     const imageUrl = `https://apinodeexpressfirst-production.up.railway.app/api/imgproductos/image/${id}`;
                     setImageData(imageUrl);
                 }
@@ -29,10 +26,9 @@ function Imagen({ id }) {
     return (
         <div>
             {imageData ? (
-                // Si hay imageData (URL de la imagen), muestra la imagen
                 <img src={imageData} alt={'No imagen'} />
             ) : (
-                <img src='https://img.freepik.com/vector-premium/vector-icono-imagen-predeterminado-pagina-imagen-faltante-diseno-sitio-web-o-aplicacion-movil-no-hay-foto-disponible_87543-11093.jpg'/>
+                <img src='https://img.freepik.com/vector-premium/vector-icono-imagen-predeterminado-pagina-imagen-faltante-diseno-sitio-web-o-aplicacion-movil-no-hay-foto-disponible_87543-11093.jpg' alt='Imagen no disponible' />
             )}
         </div>
     );
@@ -42,15 +38,20 @@ function CarProducts({ productsData }) {
     const url = 'https://apinodeexpressfirst-production.up.railway.app/api/producto';
     const [cartItems, setCartItems] = useState([]);
     const [productos, setProductos] = useState([]);
+    const [showCart, setShowCart] = useState(false);
 
     const showProducts = async () => {
-        const response = await axios.get(url, { withCredentials: true });
-        if (response.data.error) {
-            console.log('error');
-        } else {
-            setProductos(response.data.results);
+        try {
+            const response = await axios.get(url, { withCredentials: true });
+            if (response.data.error) {
+                console.log('Error al obtener productos');
+            } else {
+                setProductos(response.data.results);
+            }
+        } catch (error) {
+            console.error('Error al obtener productos:', error);
         }
-    }
+    };
 
     useEffect(() => {
         showProducts();
@@ -99,8 +100,8 @@ function CarProducts({ productsData }) {
                         <div key={product.ncodigo} className='product-card'>
                             <Imagen id={product.ncodigo}/>
                             <div className='product-info'>
-                                <h5>{product.vnombre}</h5>
-                                <p>Precio: ${product.nprecio}</p>
+                                <h5 className='product-name'>{product.vnombre}</h5>
+                                <p className='product-price'>Precio: ${product.nprecio}</p>
                                 <button
                                     className='btn btn-primary'
                                     onClick={() => addToCart(product.vnombre, product.nprecio)}
@@ -112,7 +113,12 @@ function CarProducts({ productsData }) {
                     ))}
                 </div>
             </div>
-            <div className='cart'>
+            {/* Icono de carrito para mostrar/ocultar el carrito */}
+            <div className='cart-icon' onClick={() => setShowCart(!showCart)}>
+                <i className='bi bi-cart'></i>
+            </div>
+            {/* Carrito de Compras */}
+            <div className={`cart ${showCart ? 'show' : ''}`}>
                 <h2>Carrito de Compras</h2>
                 {cartItems.length === 0 ? (
                     <p>El carrito está vacío.</p>
@@ -121,25 +127,18 @@ function CarProducts({ productsData }) {
                         {cartItems.map(item => (
                             <div key={item.vnombre} className='cart-item'>
                                 <div className='cart-item-info'>
-                                    <span className='cart-item-name me-5'>{item.vnombre}</span>
+                                    <span className='cart-item-name'>{item.vnombre}</span>
                                     <span className='cart-item-price'>${item.nprecio}</span>
                                 </div>
                                 <div className='cart-item-actions'>
-                                    <button className='button'
-                                        onClick={() => decreaseQuantity(item.vnombre)}
-                                    >
+                                    <button className='button' onClick={() => decreaseQuantity(item.vnombre)}>
                                         <i className="bi bi-caret-left text-success"></i>
                                     </button>
                                     <span className='cart-item-quantity'>{item.quantity}</span>
-                                    <button className='button'
-                                        onClick={() => increaseQuantity(item.vnombre)}
-                                    >
-                                        <i class="bi bi-caret-right text-success"></i>
+                                    <button className='button' onClick={() => increaseQuantity(item.vnombre)}>
+                                        <i className="bi bi-caret-right text-success"></i>
                                     </button>
-                                    <button
-                                        className='btn btn-danger'
-                                        onClick={() => removeFromCart(item.vnombre)}
-                                    >
+                                    <button className='btn btn-danger' onClick={() => removeFromCart(item.vnombre)}>
                                         Eliminar
                                     </button>
                                 </div>
