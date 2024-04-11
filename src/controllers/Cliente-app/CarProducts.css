@@ -131,9 +131,14 @@
 
 .cart-icon .total{
     position: absolute;
-    top: -1rem;
-    left: 1.8rem;
+    top: -0.7rem;
+    left: 1.9rem;
     font-weight: 700;
+    width: 30px;
+    height: 30px;
+    color: #007bff;
+    border: 50%;
+    background: white;
 }
 .cart.show {
     display: block;
