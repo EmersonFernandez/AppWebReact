@@ -170,6 +170,10 @@
     align-items: center;
     margin-top: 10px;
 }
+.pago span{
+    font-size: 1rem;
+    font-weight: bolder;
+}
 .pago button{
     padding: 5px 10px;
 }
