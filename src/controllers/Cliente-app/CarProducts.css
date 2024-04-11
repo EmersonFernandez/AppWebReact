@@ -100,9 +100,8 @@
 }
 
 .delete{
-    margin: 0px 5px;
-    cursor: pointer;
-    padding: 5px 10px;
+    margin-right:5px;
+    background-color: #dc3545;
 }
 
 .btn-danger {
