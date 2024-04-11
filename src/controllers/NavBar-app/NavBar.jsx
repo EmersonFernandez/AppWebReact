@@ -90,7 +90,8 @@ function NavBar() {
                                 };
                             </ul>
                             <div className='d-flex'>
-                                <i className="bi bi-cart"></i>
+                                {/* <i className="bi bi-cart"></i> */}
+                                iconos
                             </div>
                             <div className="d-flex">
                                 <div className="nav-item dropdown">
