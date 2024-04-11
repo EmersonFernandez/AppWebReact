@@ -85,14 +85,10 @@ function NavBar() {
                                                 }
                                             </ul>
                                         </li>
-                                    ) : ''
+                                    ) : null
 
                                 };
                             </ul>
-                            <div className='d-flex'>
-                                {/* <i className="bi bi-cart"></i> */}
-                                iconos
-                            </div>
                             <div className="d-flex">
                                 <div className="nav-item dropdown">
                                     <a className="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
