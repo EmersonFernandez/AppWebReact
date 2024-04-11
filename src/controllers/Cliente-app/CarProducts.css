@@ -103,6 +103,7 @@
     background-color: #dc3545;
     border-color: #dc3545;
     color: #fff;
+    border-radius: 50% !important;
 }
 
 /* Estilos para el icono de carrito */
