@@ -59,24 +59,33 @@ function CarProducts() {
     }, []);
 
     const TotalPagoProductos = () => {
-        // Calcula el total sumando los precios de los productos en el carrito
-        const valor = cartItems.reduce((total, item) => {
-            return total + Number(item.nprecio) * item.quantity;
+        const total = cartItems.reduce((accumulator, item) => {
+            return accumulator + Number(item.nprecio) * item.quantity;
         }, 0);
     
-        // Actualiza el estado totalPago con el total calculado
-        setTotalPago(valor);
+        setTotalPago(total);
     };
+    
 
     const addToCart = (productName, productPrice) => {
         const alreadyInCart = cartItems.find(item => item.vnombre === productName);
-
-        if (!alreadyInCart) {
+    
+        if (alreadyInCart) {
+            const updatedCartItems = cartItems.map(item => {
+                if (item.vnombre === productName) {
+                    return { ...item, quantity: item.quantity + 1 };
+                }
+                return item;
+            });
+            setCartItems(updatedCartItems);
+        } else {
             const newItem = { vnombre: productName, nprecio: productPrice, quantity: 1 };
             setCartItems([...cartItems, newItem]);
-            TotalPagoProductos(); 
         }
+    
+        TotalPagoProductos(); // Recalcular el total después de añadir al carrito
     };
+    
 
     const removeFromCart = (productName) => {
         const updatedCartItems = cartItems.filter(item => item.vnombre !== productName);
