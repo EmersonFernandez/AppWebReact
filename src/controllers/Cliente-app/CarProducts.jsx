@@ -41,6 +41,7 @@ function CarProducts() {
     const [cartItems, setCartItems] = useState([]);
     const [productos, setProductos] = useState([]);
     const [showCart, setShowCart] = useState(false);
+    const [totalPago, setTotalPago] = useState(0);
 
     const showProducts = async () => {
         try {
@@ -69,6 +70,13 @@ function CarProducts() {
         }
     };
 
+    const TotalPagoProductos = (cartItems) =>{
+        const pagar = cartItems.map( item => {
+            const total = total + (item.nprecio * item.quantity)
+            return total;
+        });
+        setTotalPago(pagar);
+    };
     // removemos el producto del carro
     const removeFromCart = (productName) => {
         const updatedCartItems = cartItems.filter(item => item.vnombre !== productName);
@@ -156,7 +164,7 @@ function CarProducts() {
                             </div>
                         ))}
                         <div className='pago'>
-                            <span>total : $374.4394 </span>
+                            <span>total : ${totalPago} </span>
                             <button className='btn btn-success'>Pagar</button>
                         </div>
                     </div>
