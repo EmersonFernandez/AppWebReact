@@ -164,6 +164,11 @@
     z-index: 998;
 }
 
+.pago{
+    display: flex;
+    justify-content: space-around;
+}
+
 /* Media Query para dispositivos móviles */
 @media (max-width: 768px) {
     .product-grid {
