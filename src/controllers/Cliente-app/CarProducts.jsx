@@ -72,14 +72,6 @@ function CarProducts() {
         const alreadyInCart = cartItems.find(item => item.vnombre === productName);
 
         if (alreadyInCart) {
-            const updatedCartItems = cartItems.map(item => {
-                if (item.vnombre === productName) {
-                    return { ...item, quantity: item.quantity + 1 };
-                }
-                return item;
-            });
-            setCartItems(updatedCartItems);
-            TotalPagoProductos(updatedCartItems); // Pasar los cartItems actualizados
             SweetAlertSimple('El producto seleccionado, ya esta en el carrito','info')
         } else {
             const newItem = { vnombre: productName, nprecio: productPrice, quantity: 1 };
