@@ -130,7 +130,7 @@ function CarProducts() {
             </div>
             {/* Carrito de Compras */}
             <div className={`cart ${showCart ? 'show' : ''}`}>
-                <h2>Carrito de Compras</h2>
+                <h3>Carrito de Compras</h3>
                 {cartItems.length === 0 ? (
                     <p style={{fontStyle:'italic'}}>El carrito está vacío.</p>
                 ) : (
