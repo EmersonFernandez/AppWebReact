@@ -58,8 +58,8 @@ function CarProducts() {
         showProducts();
     }, []);
 
-    const TotalPagoProductos = () => {
-        const total = cartItems.reduce((accumulator, item) => {
+    const TotalPagoProductos = (cartItemss) => {
+        const total = cartItemss.reduce((accumulator, item) => {
             return accumulator + Number(item.nprecio) * item.quantity;
         }, 0);
     
@@ -83,7 +83,7 @@ function CarProducts() {
             setCartItems([...cartItems, newItem]);
         }
     
-        TotalPagoProductos(); // Recalcular el total después de añadir al carrito
+        TotalPagoProductos(cartItems); // Recalcular el total después de añadir al carrito
     };
     
 
