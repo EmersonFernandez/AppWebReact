@@ -151,7 +151,7 @@ function CarProducts() {
             <div className={`cart ${showCart ? 'show' : ''}`}>
                 <div className='header'>
                     <h3>Carrito de Compras</h3>
-                    <button className='button' onClick={() => setShowCart(false)}>
+                    <button className='button delete' onClick={() => setShowCart(false)}>
                         <i className="bi bi-x"></i>
                     </button>
                 </div>

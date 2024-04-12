@@ -101,8 +101,9 @@
 
 .delete{
     margin:0 5px;
-    /* background-color: #dc3545; */
+    background-color: transparent;
     /* border-radius: 2px; */
+    font-size: 2rem;
     color: #ddd;
 }
 
