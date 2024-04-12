@@ -16,6 +16,7 @@ import ProtectPageNewPass from './controllers/other/ProtectPageNewPass.jsx';
 import ImageUpload from './controllers/other/ImageUpload.jsx';
 import CarProducts from './controllers/Cliente-app/CarProducts.jsx';
 import ProtectedPageCliente from './controllers/other/ProtectedPageCliente.jsx';
+import ProtectedPageGestion from './controllers/other/ProtectedPageGestion.jsx';
 
 
 
@@ -50,14 +51,16 @@ function App() {
             <Route element={<SessionExperi />}>
               <Route path="/processlogin" element={<NewPassword />} />
               <Route element={<ProtectPageNewPass />}>
-                <Route path="/home" element={<Home />} />
-                <Route path="/product" element={<Products />} />
-                <Route element={<ProtectedPageCliente/>}>
+                <Route element={<ProtectedPageCliente />}>
                   <Route path="/listproducts" element={<CarProducts />} />
                 </Route>
-                <Route path='/upload' element={<ImageUpload/>}></Route>
-                <Route element={<ProtectedPageAdmins />}>
-                  <Route path="/user" element={<Usuarios />} />
+                <Route element={<ProtectedPageGestion/>}>
+                  <Route path="/home" element={<Home />} />
+                  <Route path="/product" element={<Products />} />
+                  <Route path='/upload' element={<ImageUpload />}></Route>
+                  <Route element={<ProtectedPageAdmins />}>
+                    <Route path="/user" element={<Usuarios />} />
+                  </Route>
                 </Route>
               </Route>
             </Route>

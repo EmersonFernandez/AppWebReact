@@ -1,11 +1,10 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { Outlet, useNavigate } from 'react-router-dom';
 import { fetchUserData } from '../../funcions/axiosDatas';
-
-function ProtectedPageCliente() {
+function ProtectedPageGestion() {
     // inicializamos los estados
     const [dataUser, setDataUser] = useState({});
-    const [isCliente, setIsCliente] = useState(false);
+    const [isGestion, setIsGestion] = useState(false);
     const alertShown = useRef(false);
     // para la navegacion
     const navegate = useNavigate();
@@ -19,10 +18,10 @@ function ProtectedPageCliente() {
     useEffect(() => {
         if (Object.keys(dataUser).length !== 0 && dataUser.data && !alertShown.current) {
             if (!dataUser.data.error) {
-                if (Number(dataUser.data.dataUser.rol) != 2) {
-                    navegate('/home');
-                }else{
-                    setIsCliente(true);
+                if (Number(dataUser.data.dataUser.rol) == 2) {
+                    navegate('/listproducts');
+                } else {
+                    setIsGestion(true);
                 }
             }
             // esta es para impedir que se repita la logica
@@ -31,7 +30,7 @@ function ProtectedPageCliente() {
     }, [dataUser]);
 
     // validamos si es admin el usuario conectado
-    return isCliente ? <Outlet /> : null;
+    return isGestion ? <Outlet /> : null;
 }
 
-export default ProtectedPageCliente
+export default ProtectedPageGestion
