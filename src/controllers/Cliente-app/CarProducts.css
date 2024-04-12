@@ -110,9 +110,7 @@
     align-items: center; */
 }
 
-.delete .bi.bi-x{
-    font-size: 2rem;
-}
+
 
 .btn-danger {
     background-color: #dc3545;
@@ -179,7 +177,7 @@
 }
 .cart .header button{
     position: absolute;
-    top: -2rem;
+    top: -1rem;
     right: -0.6rem;
 }
 .pago{
