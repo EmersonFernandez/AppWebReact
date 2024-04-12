@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './CarProducts.css'; // Importa estilos CSS para el componente
-import {SweetAlertSimple} from '../../funcions/sweet-alert'
+import { SweetAlertSimple } from '../../funcions/sweet-alert'
 
 function Imagen({ id }) {
     const [imageData, setImageData] = useState(null);
@@ -72,12 +72,12 @@ function CarProducts() {
         const alreadyInCart = cartItems.find(item => item.vnombre === productName);
 
         if (alreadyInCart) {
-            SweetAlertSimple('El producto seleccionado, ya esta en el carrito','info')
+            SweetAlertSimple('El producto seleccionado, ya esta en el carrito', 'info')
         } else {
             const newItem = { vnombre: productName, nprecio: productPrice, quantity: 1 };
             setCartItems([...cartItems, newItem]);
             TotalPagoProductos([...cartItems, newItem]); // Pasar los cartItems actualizados
-            SweetAlertSimple('Producto añadido','success')
+            SweetAlertSimple('Producto añadido', 'success')
         }
     };
 
@@ -112,7 +112,8 @@ function CarProducts() {
     };
 
     const generatePedido = () => {
-        SweetAlertSimple('Pedido realizado','success');
+        SweetAlertSimple('Pedido realizado', 'success');
+        setShowCart(false);
         setCartItems([]);
     }
 
@@ -148,7 +149,12 @@ function CarProducts() {
             </div>
 
             <div className={`cart ${showCart ? 'show' : ''}`}>
-                <h3>Carrito de Compras</h3>
+                <div className='header'>
+                    <h3>Carrito de Compras</h3>
+                    <button className='button' onClick={() => setShowCart(false)}>
+                        <i className="bi bi-x"></i>
+                    </button>
+                </div>
                 {cartItems.length === 0 ? (
                     <p style={{ fontStyle: 'italic' }}>El carrito está vacío.</p>
                 ) : (
@@ -168,13 +174,13 @@ function CarProducts() {
                                         <i className="bi bi-caret-right text-success"></i>
                                     </button>
                                     <button className='button delete' onClick={() => removeFromCart(item.vnombre)}>
-                                        <i className="bi bi-x text-white"></i>
+                                        <i className="bi bi-x"></i>
                                     </button>
                                 </div>
                             </div>
                         ))}
                         <div className='pago'>
-                            <span>Total: ${totalPago}</span>
+                            <span>Total: {new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP' }).format(totalPago)}</span>
                             <button className='btn btn-success' onClick={() => generatePedido()}>Generar pedido</button>
                         </div>
                     </div>
