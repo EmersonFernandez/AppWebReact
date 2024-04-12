@@ -177,8 +177,9 @@
 }
 .cart .header button{
     position: absolute;
-    top: -0.7rem;
+    top: 0px;
     right: -0.6rem;
+    font-size: 2rem;
 }
 .pago{
     display: flex;
