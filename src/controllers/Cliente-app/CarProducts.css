@@ -101,10 +101,10 @@
 
 .delete{
     margin:0 5px;
-    background-color: red;
-    /* background-color: transparent; */
+    /* background-color: red; */
+    background-color: transparent;
     /* border-radius: 2px; */
-    color: #ddd;
+    color: #c2c0c0;
     /* display: flex;
     justify-content: center;
     align-items: center; */
@@ -177,7 +177,7 @@
 }
 .cart .header button{
     position: absolute;
-    top: -1rem;
+    top: -0.7rem;
     right: -0.6rem;
 }
 .pago{
