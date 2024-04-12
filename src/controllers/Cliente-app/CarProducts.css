@@ -101,13 +101,14 @@
 
 .delete{
     margin:0 5px;
-    background-color: transparent;
+    background-color: red;
+    /* background-color: transparent; */
     /* border-radius: 2px; */
     font-size: 2rem;
     color: #ddd;
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }
 
 .btn-danger {
@@ -169,7 +170,6 @@
     z-index: 998;
 }
 .cart .header{
-    position: relative;
     display: flex;
     justify-content: space-around;
     align-items: center;
