@@ -105,6 +105,9 @@
     /* border-radius: 2px; */
     font-size: 2rem;
     color: #ddd;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .btn-danger {
@@ -166,11 +169,16 @@
     z-index: 998;
 }
 .cart .header{
+    position: relative;
     display: flex;
     justify-content: space-around;
     align-items: center;
 }
-
+.cart .header button{
+    position: absolute;
+    top: -3rem;
+    right: -1rem;
+}
 .pago{
     display: flex;
     justify-content: space-around;
