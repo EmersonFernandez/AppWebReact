@@ -37,3 +37,9 @@ La aplicación está configurada para interactuar con una API externa, manejando
 
 #### Manejo de Expiración de Token:
 - Al expirar el token de autenticación, se muestra una alerta al usuario para informarle de la situación. La aplicación deberá gestionar la renovación o requerir un nuevo inicio de sesión según sea necesario.
+
+## Tecnologías Utilizadas en la Aplicación
+- React + Vite - Para la construcción y desarrollo rápido de la interfaz de usuario.
+- Bootstrap 5 - Framework CSS para diseño responsivo y estilización de la aplicación.
+- Bootstrap Icons - Conjunto de íconos optimizados para Bootstrap, para mejorar la interfaz gráfica.
+- SweetAlert2 - Biblioteca JavaScript para mostrar alertas personalizadas más atractivas y funcionales que los cuadros de diálogo estándar.
