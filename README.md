@@ -74,7 +74,7 @@ Para utilizar la aplicación, puedes acceder a la siguiente URL: [Aplicación We
 <br/>
 
      Rol: Vendedor
-     Usuario: carlos
+     Usuario: manuel
      Contraseña: 1234
 - Como vendedor, puedes gestionar los productos en la aplicación.
 
