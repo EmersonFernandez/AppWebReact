@@ -1,23 +1,23 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import {axiosDataGet} from '../../../funcions/axiosDatas'
-import {SweetAlertGenerteWithToast} from '../../../funcions/sweet-alert'
+import { axiosDataGet } from '../../../funcions/axiosDatas'
+import { SweetAlertGenerteWithToast } from '../../../funcions/sweet-alert'
 import Swal from 'sweetalert2'
 
 
 
-function BtnCrear({openModal}) {
+function BtnCrear({ openModal }) {
     return <>
         <div className='btn btn-info text-white'
-        data-bs-toggle="modal" data-bs-target="#modalUsuario" 
-        onClick={() => openModal(1)}
+            data-bs-toggle="modal" data-bs-target="#modalUsuario"
+            onClick={() => openModal(1)}
         >
             Crear usuario
         </div>
     </>
 }
 
-function TablesUsuarios({dataUsers,openModal,handleDeleteUser}) {
+function TablesUsuarios({ dataUsers, openModal, handleDeleteUser }) {
     return (
         <>
             <div className='table-responsive'>
@@ -35,35 +35,35 @@ function TablesUsuarios({dataUsers,openModal,handleDeleteUser}) {
                         </tr>
                     </thead>
                     <tbody className='table-group-divider'>
-                            {dataUsers.results && dataUsers.results.map((el, id) => (
-                                <tr key={id} className='text-center'>
-                                    <td className="text-center align-middle">{el.ncodigo}</td>
-                                    <td className="text-center align-middle">{el.vnombre + ' ' + el.vapellido}</td>
-                                    <td className="text-center align-middle">{el.vtelefono}</td>
-                                    <td className="text-center align-middle">{el.vdocumento}</td>
-                                    <td className="text-center align-middle">{el.name_rol}</td>
-                                    <td className="text-center align-middle">{el.name_privg}</td>
-                                    <td className="text-center align-middle">{el.vusuario}</td>
-                                    <td>
-                                        <div className="d-flex justify-content-center align-items-center bg-light g-1 bg-transparent">
-                                            <button  className='btn btn-outline-warning me-1' data-bs-toggle='modal' data-bs-target='#modalUsuario' onClick={() => openModal(2,dataUsers.results[id])}>
-                                                <i className='fa-solid fa-edit'></i>
-                                            </button>
-                                            <button  className='btn btn-outline-danger ms-1' onClick={() => handleDeleteUser(el.ncodigo, el.vusuario)}>
-                                                <i className='fa-solid fa-trash'></i>
-                                            </button>
-                                        </div>
-                                    </td>
-                                </tr>
-                            ))}
-                        </tbody>
+                        {dataUsers.results && dataUsers.results.map((el, id) => (
+                            <tr key={id} className='text-center'>
+                                <td className="text-center align-middle">{el.ncodigo}</td>
+                                <td className="text-center align-middle">{el.vnombre + ' ' + el.vapellido}</td>
+                                <td className="text-center align-middle">{el.vtelefono}</td>
+                                <td className="text-center align-middle">{el.vdocumento}</td>
+                                <td className="text-center align-middle">{el.name_rol}</td>
+                                <td className="text-center align-middle">{el.name_privg}</td>
+                                <td className="text-center align-middle">{el.vusuario}</td>
+                                <td>
+                                    <div className="d-flex justify-content-center align-items-center bg-light g-1 bg-transparent">
+                                        <button className='btn btn-outline-warning me-1' data-bs-toggle='modal' data-bs-target='#modalUsuario' onClick={() => openModal(2, dataUsers.results[id])}>
+                                            <i className='fa-solid fa-edit'></i>
+                                        </button>
+                                        <button className='btn btn-outline-danger ms-1' onClick={() => handleDeleteUser(el.ncodigo, el.vusuario)}>
+                                            <i className='fa-solid fa-trash'></i>
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                        ))}
+                    </tbody>
                 </table>
             </div>
         </>
     )
 }
 
-function ModalUsuario({form,handleChange,title,btnText,dataRol,dataPrivg,handleAddUpdate}) {
+function ModalUsuario({ form, handleChange, title, btnText, dataRol, dataPrivg, handleAddUpdate }) {
     return (
         <>
             <div className="modal fade" id="modalUsuario" tabndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -87,43 +87,43 @@ function ModalUsuario({form,handleChange,title,btnText,dataRol,dataPrivg,handleA
                                     </div>
                                     <div className='group-form mb-2'>
                                         <label htmlFor="" className='form-label'>Número Celular</label>
-                                        <input type="number" className='form-control form-control-sm' name='telefono' id='telefono'value={form.telefono || ''} onChange={handleChange} autoComplete='off' />
+                                        <input type="number" className='form-control form-control-sm' name='telefono' id='telefono' value={form.telefono || ''} onChange={handleChange} autoComplete='off' />
                                     </div>
                                     <div className='group-form mb-2'>
                                         <label htmlFor="" className='form-label'>Número Documento</label>
-                                        <input type="number" className='form-control form-control-sm' name='documento' id='documento'value={form.documento || ''} onChange={handleChange} autoComplete='off' />
+                                        <input type="number" className='form-control form-control-sm' name='documento' id='documento' value={form.documento || ''} onChange={handleChange} autoComplete='off' />
                                     </div>
-                                    
+
                                 </div>
                                 <div className='col-md-6'>
-                                <div className='group-form mb-2'>
+                                    <div className='group-form mb-2'>
                                         <label htmlFor="" className='form-label'>Seleccione el rol</label>
-                                        <select 
-                                        name="rol"
-                                        id="rol" 
-                                        className='form-select form-select-sm'
-                                        value={form.rol || ''}
-                                        onChange={handleChange}>
+                                        <select
+                                            name="rol"
+                                            id="rol"
+                                            className='form-select form-select-sm'
+                                            value={form.rol || ''}
+                                            onChange={handleChange}>
                                             <option value=""> -- seleccionar --</option>
                                             {
-                                                dataRol.results && dataRol.results.map((el,id) => (
+                                                dataRol.results && dataRol.results.map((el, id) => (
                                                     <option key={id} value={el.ncodigo}>{el.vnombre}</option>
                                                 ))
                                             }
                                         </select>
                                     </div>
-                                    { form.rol != 1 ?<div className='group-form mb-2'>
+                                    {form.rol != 1 ? <div className='group-form mb-2'>
                                         <label htmlFor="" className='form-label'>Seleccione el privilegio</label>
-                                        <select 
-                                        name="privilegio"
-                                        id="privilegio" 
-                                        className='form-select form-select-sm'
-                                        aria-label="Default select example"
-                                        value={form.privilegio || ''}
-                                        onChange={handleChange}>
+                                        <select
+                                            name="privilegio"
+                                            id="privilegio"
+                                            className='form-select form-select-sm'
+                                            aria-label="Default select example"
+                                            value={form.privilegio || ''}
+                                            onChange={handleChange}>
                                             <option value="" > -- seleccionar --</option>
                                             {
-                                                dataPrivg.results && dataPrivg.results.map((el,id) => (
+                                                dataPrivg.results && dataPrivg.results.map((el, id) => (
                                                     <option key={id} value={el.ncodigo}>{el.vnombre}</option>
                                                 ))
                                             }
@@ -133,7 +133,7 @@ function ModalUsuario({form,handleChange,title,btnText,dataRol,dataPrivg,handleA
                                     }
                                     <div className='group-form mb-2'>
                                         <label htmlFor="" className='form-label'>Usuario</label>
-                                        <input type="text" name='usuario' id='usuario' className='form-control form-control-sm' value={form.usuario || ''} onChange={handleChange}/>
+                                        <input type="text" name='usuario' id='usuario' className='form-control form-control-sm' value={form.usuario || ''} onChange={handleChange} />
                                     </div>
                                     <div className='group-form mb-2'>
                                         <label htmlFor="" className='form-label'>Clave</label>
@@ -155,51 +155,51 @@ function ModalUsuario({form,handleChange,title,btnText,dataRol,dataPrivg,handleA
 
 function Usuarios() {
     const url = 'https://apinodeexpressfirst-production.up.railway.app/api/usuarios';
-    const urlP ='https://apinodeexpressfirst-production.up.railway.app/api/privilegios';
-    const [form,setForm] = useState({});
-    const [title,setTitle] = useState('');
-    const [operacion,setOperacion] = useState(1);
-    const [btnText,setBtnText] = useState('');
+    const urlP = 'https://apinodeexpressfirst-production.up.railway.app/api/privilegios';
+    const [form, setForm] = useState({});
+    const [title, setTitle] = useState('');
+    const [operacion, setOperacion] = useState(1);
+    const [btnText, setBtnText] = useState('');
     const [dataUsers, setDataUsers] = useState([]);
     const [dataRol, setDataRol] = useState([]);
     const [dataPrivg, setDataPrivg] = useState([]);
 
-    const axiosUser = async () =>{
+    const axiosUser = async () => {
         const response = await axiosDataGet(url);
         setDataUsers(response);
     }
 
     useEffect(() => {
         axiosUser();
-    },[])
-    
+    }, [])
+
     useEffect(() => {
-        const getDataRol  = async () => {
+        const getDataRol = async () => {
             const response = await axiosDataGet(`${urlP}/rol`);
-            setDataRol(response);        
+            setDataRol(response);
         }
 
         getDataRol();
-    },[])
+    }, [])
 
     useEffect(() => {
-        const getDataPrivg =  async() => {
+        const getDataPrivg = async () => {
             const response = await axiosDataGet(`${urlP}/privg`);
             setDataPrivg(response);
         }
         getDataPrivg();
-    },[])
+    }, [])
 
     const handleChange = (e) => {
-        const {name,value} = e.target;
+        const { name, value } = e.target;
         setForm({
             ...form,
-            [name] : value
-        }); 
+            [name]: value
+        });
     }
 
-    const openModal = (op,data) => {
-        if(op == 1 ){
+    const openModal = (op, data) => {
+        if (op == 1) {
             setTitle('Registro de usuarios');
             setBtnText('Guardar');
             const formReset = {};
@@ -207,50 +207,53 @@ function Usuarios() {
                 formReset[key] = ''; // Establece cada valor a una cadena vacía
             }
             setForm(formReset);
-            
-            
-        }else if(op == 2){
+
+
+        } else if (op == 2) {
             setTitle('Actulizar usuario');
             setBtnText('Actulizar');
             console.log(data);
-            form.codigo = data.ncodigo;
-            form.nombres = data.vnombre;
-            form.apellidos = data.vapellido;
-            form.telefono = data.vtelefono;
-            form.documento = data.vdocumento;
-            form.usuario = data.vusuario;
-            form.rol = data.nrol;
-            form.privilegio = data.nprivilegio;
+            setForm({
+                ...form,
+                codigo : data.ncodigo,
+                nombres : data.vnombre,
+                apellidos : data.vapellido,
+                telefono : data.vtelefono,
+                documento : data.vdocumento,
+                usuario : data.vusuario,
+                rol : data.nrol,
+                privilegio : data.nprivilegio,
+            })
         }
 
         setOperacion(op)
     }
 
     const handleAddUpdate = async () => {
-        if(operacion == 1){
-            const response = await axios.post(url,form,{withCredentials:true});
-            if(response.data.error){
-                SweetAlertGenerteWithToast(response.data.message,'error');
-            }else{
-                SweetAlertGenerteWithToast('Se creo correctamente el usuario','success');
+        if (operacion == 1) {
+            const response = await axios.post(url, form, { withCredentials: true });
+            if (response.data.error) {
+                SweetAlertGenerteWithToast(response.data.message, 'error');
+            } else {
+                SweetAlertGenerteWithToast('Se creo correctamente el usuario', 'success');
                 document.getElementById('modalClose').click();
                 axiosUser();
-                
+
             }
-        }else if(operacion == 2){
-            const response = await axios.put(url,form,{withCredentials:true});
-            if(response.data.error){
-                SweetAlertGenerteWithToast(response.data.message || response.data.errorMessage,'error');
-            }else{
-                SweetAlertGenerteWithToast(response.data.message,'success');
+        } else if (operacion == 2) {
+            const response = await axios.put(url, form, { withCredentials: true });
+            if (response.data.error) {
+                SweetAlertGenerteWithToast(response.data.message || response.data.errorMessage, 'error');
+            } else {
+                SweetAlertGenerteWithToast(response.data.message, 'success');
                 document.getElementById('modalClose').click();
                 axiosUser();
             }
         }
     }
 
-    const handleDeleteUser = async (id,nombre) => {
-        
+    const handleDeleteUser = async (id, nombre) => {
+
         Swal.fire({
             title: '¿Seguro que quieres eliminar el usuario ' + nombre + ' ?',
             icon: 'question',
@@ -262,17 +265,17 @@ function Usuarios() {
         }).then(async (respuesta) => {
             if (respuesta.isConfirmed) {
                 try {
-                    const response  = await axios.delete(`${url}/${id}`,{withCredentials:true});
-                    if(response.data.error){
-                        SweetAlertGenerteWithToast(response.data.errorMessage,'error');
-                    }else{
-                        SweetAlertGenerteWithToast(response.data.message,'success');
+                    const response = await axios.delete(`${url}/${id}`, { withCredentials: true });
+                    if (response.data.error) {
+                        SweetAlertGenerteWithToast(response.data.errorMessage, 'error');
+                    } else {
+                        SweetAlertGenerteWithToast(response.data.message, 'success');
                         axiosUser();
 
                     }
                 } catch (error) {
-                    console.log('error eliminar usuario ',error);
-                    SweetAlertGenerteWithToast('Ocurrrio un error en el serviddor.\n comuniquece con el administrador','error');
+                    console.log('error eliminar usuario ', error);
+                    SweetAlertGenerteWithToast('Ocurrrio un error en el serviddor.\n comuniquece con el administrador', 'error');
                 }
 
             } else {
@@ -286,24 +289,24 @@ function Usuarios() {
         <>
             <div className='container'>
                 <div className='mb-2'>
-                    <BtnCrear openModal={openModal}/>
+                    <BtnCrear openModal={openModal} />
                 </div>
                 <div>
-                    <TablesUsuarios 
-                    dataUsers={dataUsers} 
-                    openModal={openModal}
-                    handleDeleteUser={handleDeleteUser}
+                    <TablesUsuarios
+                        dataUsers={dataUsers}
+                        openModal={openModal}
+                        handleDeleteUser={handleDeleteUser}
                     />
                 </div>
             </div>
-            <ModalUsuario 
-            form={form} 
-            handleChange={handleChange} 
-            title={title} 
-            btnText={btnText} 
-            dataRol={dataRol} 
-            dataPrivg={dataPrivg}
-            handleAddUpdate={handleAddUpdate}/>
+            <ModalUsuario
+                form={form}
+                handleChange={handleChange}
+                title={title}
+                btnText={btnText}
+                dataRol={dataRol}
+                dataPrivg={dataPrivg}
+                handleAddUpdate={handleAddUpdate} />
         </>
     )
 }
