@@ -1,9 +1,9 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState,  } from 'react'
 import axios from 'axios'
+import {useNavigate} from 'react-router-dom';
 import { axiosDataGet } from '../../../funcions/axiosDatas'
-import { SweetAlertGenerteWithToast } from '../../../funcions/sweet-alert'
+import { SweetAlertGenerteWithToast, SessionExperix_alert } from '../../../funcions/sweet-alert'
 import Swal from 'sweetalert2'
-import { data } from 'jquery'
 
 
 
@@ -166,7 +166,7 @@ function Usuarios() {
     const [dataUsers, setDataUsers] = useState([]);
     const [dataRol, setDataRol] = useState([]);
     const [dataPrivg, setDataPrivg] = useState([]);
-
+    const navegate = useNavigate();
     const axiosUser = async () => {
         const response = await axiosDataGet(url);
         setDataUsers(response);
@@ -235,6 +235,11 @@ function Usuarios() {
     const handleAddUpdate = async () => {
         if (operacion == 1) {
             const response = await axios.post(url, form, { withCredentials: true });
+
+            if(response.data.error && Number(response.data.status) == 401){
+                return SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => navegate('/'));
+            }
+
             if (response.data.error) {
                 SweetAlertGenerteWithToast(response.data.message, 'error');
             } else {
@@ -245,6 +250,11 @@ function Usuarios() {
             }
         } else if (operacion == 2) {
             const response = await axios.put(url, form, { withCredentials: true });
+
+            if(response.data.error && Number(response.data.status) == 401){
+                return SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => navegate('/'));
+            }
+
             if (response.data.error) {
                 SweetAlertGenerteWithToast(response.data.message || response.data.errorMesagge, 'error');
                 console.log(response);
@@ -270,6 +280,11 @@ function Usuarios() {
             if (respuesta.isConfirmed) {
                 try {
                     const response = await axios.delete(`${url}/${id}`, { withCredentials: true });
+
+                    if(response.data.error && Number(response.data.status) == 401){
+                        return SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => navegate('/'));
+                    }
+
                     if (response.data.error) {
                         SweetAlertGenerteWithToast(response.data.errorMessage, 'error');
                     } else {
