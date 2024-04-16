@@ -137,7 +137,7 @@ function ModalUsuario({ form, handleChange, title, btnText, dataRol, dataPrivg, 
                                     </div>
                                     <div className='group-form mb-2'>
                                         <label htmlFor="" className='form-label'>Clave</label>
-                                        <input type="password" name="pass" id="pass" className='form-control form-control-sm' value={form.pass || ''} onChange={handleChange} />
+                                        <input type="password" name="pass" id="pass" className='form-control form-control-sm' value={form.pass || ''} onChange={handleChange} autoComplete='off' />
                                     </div>
                                 </div>
                             </div>
