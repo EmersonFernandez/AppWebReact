@@ -47,30 +47,30 @@ La aplicación está configurada para interactuar con una API externa, manejando
 Para utilizar la aplicación, puedes acceder a la siguiente URL: [Aplicación Web React](https://appwebreact.netlify.app/ "Aplicación Web React")
 
 ### Credenciales de Usuario:
-      **Rol**: Administrador <br/>
-      **Usuario**: emerson <br/>
-      **Contraseña**: 1234 <br/>
+      Rol: Administrador
+      Usuario: emerson
+      Contraseña: 1234
 - Como administrador, tienes acceso completo para administrar todo el sistema.
   
 <br/>
 
-**Rol**: Supervisor <br/>
-**Usuario**: jose <br/>
-**Contraseña**: 1234 <br/>
+     Rol: Supervisor
+     Usuario: jose
+     Contraseña: 1234
 - Como supervisor, puedes gestionar los productos en la aplicación.
   
 <br/>
 
-**Rol**: Cliente <br/>
-**Usuario**: pedro <br/>
-**Contraseña**: 1234 <br/>
+     Rol: Cliente
+     Usuario: pedro
+     Contraseña: 1234
 - Como cliente, tienes acceso solo a la vista del catálogo de productos.
 
 <br/>
 
-**Rol**: Vendedor <br/>
-**Usuario**: carlos <br/>
-**Contraseña**: 1234 <br/>
+     Rol: Vendedor
+     Usuario: carlos
+     Contraseña: 1234
 - Como vendedor, puedes gestionar los productos en la aplicación.
 
 ### Funcionalidades por Rol:
