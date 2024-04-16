@@ -47,7 +47,7 @@ La aplicación está configurada para interactuar con una API externa, manejando
 ## Uso
 <p>Para utilizar la aplicación, puedes acceder a la siguiente URL: Aplicación Web React </p>
 
-#### Credenciales de Usuario:
+### Credenciales de Usuario:
 **Rol**: Administrador <br/>
 **Usuario**: emerson <br/>
 **Contraseña**: 1234 <br/>
