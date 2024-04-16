@@ -45,7 +45,7 @@ La aplicación está configurada para interactuar con una API externa, manejando
 - SweetAlert2 - Biblioteca JavaScript para mostrar alertas personalizadas más atractivas y funcionales que los cuadros de diálogo estándar.
 
 ## Uso
-<p>Para utilizar la aplicación, puedes acceder a la siguiente URL: Aplicación Web React </p>
+<p>Para utilizar la aplicación, puedes acceder a la siguiente URL: [Aplicación Web React] (appwebreact.netlify.app "Aplicación Web React")</p>
 
 ### Credenciales de Usuario:
 **Rol**: Administrador <br/>
