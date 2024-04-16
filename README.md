@@ -67,14 +67,14 @@ Para utilizar la aplicación, puedes acceder a la siguiente URL: [Aplicación We
 <br/>
 
      Rol: Cliente
-     Usuario: pedro
+     Usuario: miguel
      Contraseña: 1234
 - Como cliente, tienes acceso solo a la vista del catálogo de productos.
 
 <br/>
 
      Rol: Vendedor
-     Usuario: carlos
+     Usuario: manuel
      Contraseña: 1234
 - Como vendedor, puedes gestionar los productos en la aplicación.
 
