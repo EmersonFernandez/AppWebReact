@@ -211,6 +211,7 @@ function Usuarios() {
         }else if(op == 2){
             setTitle('Actulizar usuario');
             setBtnText('Actulizar');
+            console.log(data);
             form.codigo = data.ncodigo;
             form.nombres = data.vnombre;
             form.apellidos = data.vapellido;
@@ -225,7 +226,6 @@ function Usuarios() {
     }
 
     const handleAddUpdate = async () => {
-        console.log(operacion);
         if(operacion == 1){
             const response = await axios.post(url,form,{withCredentials:true});
             if(response.data.error){
@@ -238,7 +238,6 @@ function Usuarios() {
             }
         }else if(operacion == 2){
             const response = await axios.put(url,form,{withCredentials:true});
-            console.log(form);
             if(response.data.error){
                 SweetAlertGenerteWithToast(response.data.message || response.data.errorMessage,'error');
             }else{
