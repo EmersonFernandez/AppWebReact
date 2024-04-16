@@ -42,6 +42,11 @@ La aplicación está configurada para interactuar con una API externa, manejando
 - Bootstrap 5 - Framework CSS para diseño responsivo y estilización de la aplicación.
 - Bootstrap Icons - Conjunto de íconos optimizados para Bootstrap, para mejorar la interfaz gráfica.
 - SweetAlert2 - Biblioteca JavaScript para mostrar alertas personalizadas más atractivas y funcionales que los cuadros de diálogo estándar.
+- Axios - Librería JavaScript para realizar peticiones HTTP desde la aplicación cliente hacia el servidor.
+- React Router DOM - Librería para manejar el enrutamiento de páginas en una aplicación React de una sola página (SPA).
+- js-cookie - Utilizado para gestionar cookies en el navegador, facilitando el almacenamiento y recuperación de datos del lado del cliente.
+
+Estas tecnologías fueron seleccionadas para optimizar el desarrollo, la experiencia de usuario y la funcionalidad de la aplicación, permitiendo una integración efectiva entre el frontend y el backend.
 
 ## Uso
 Para utilizar la aplicación, puedes acceder a la siguiente URL: [Aplicación Web React](https://appwebreact.netlify.app/ "Aplicación Web React")
