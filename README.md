@@ -72,13 +72,13 @@ La aplicación está configurada para interactuar con una API externa, manejando
 - Como vendedor, puedes gestionar los productos en la aplicación.
 
 ### Funcionalidades por Rol:
- **Administrador:**   Acceso completo para administrar usuarios, productos y otras configuraciones del sistema.
+- **Administrador:**   Acceso completo para administrar usuarios, productos y otras configuraciones del sistema.
 
-**Supervisor:** Puede gestionar productos: crear, editar y eliminar productos.
+- **Supervisor:** Puede gestionar productos: crear, editar y eliminar productos.
 
-**Cliente:** Acceso limitado a la vista del catálogo de productos.
+- **Cliente:** Acceso limitado a la vista del catálogo de productos.
 
-**Vendedor:**Puede gestionar productos: crear, editar y eliminar productos.
+- **Vendedor:**Puede gestionar productos: crear, editar y eliminar productos.
 
 ### Instrucciones de Uso
 Visita Aplicación Web React en tu navegador.
