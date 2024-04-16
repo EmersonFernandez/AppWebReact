@@ -74,73 +74,75 @@ function ModalUsuario({ form, handleChange, title, btnText, dataRol, dataPrivg, 
                             <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close" id='modalClose'></button>
                         </div>
                         <div className="modal-body">
-                            <div className='row'>
-                                <input type="hidden" name="codigo" id='codigo' value={form.codigo || ''} onChange={handleChange} ></input>
-                                <div className='col-md-6'>
-                                    <div className='group-form mb-2'>
-                                        <label htmlFor="" className='form-label'>Nombres</label>
-                                        <input type="text" className='form-control form-control-sm' name='nombres' id='nombres' value={form.nombres || ''} onChange={handleChange} autoComplete='off' />
-                                    </div>
-                                    <div className='group-form mb-2'>
-                                        <label htmlFor="" className='form-label'>Apellidos</label>
-                                        <input type="text" className='form-control form-control-sm' name='apellidos' id='apellidos' value={form.apellidos || ''} onChange={handleChange} autoComplete='off' />
-                                    </div>
-                                    <div className='group-form mb-2'>
-                                        <label htmlFor="" className='form-label'>Número Celular</label>
-                                        <input type="number" className='form-control form-control-sm' name='telefono' id='telefono' value={form.telefono || ''} onChange={handleChange} autoComplete='off' />
-                                    </div>
-                                    <div className='group-form mb-2'>
-                                        <label htmlFor="" className='form-label'>Número Documento</label>
-                                        <input type="number" className='form-control form-control-sm' name='documento' id='documento' value={form.documento || ''} onChange={handleChange} autoComplete='off' />
-                                    </div>
+                            <form>
+                                <div className='row'>
+                                    <input type="hidden" name="codigo" id='codigo' value={form.codigo || ''} onChange={handleChange} ></input>
+                                    <div className='col-md-6'>
+                                        <div className='group-form mb-2'>
+                                            <label htmlFor="" className='form-label'>Nombres</label>
+                                            <input type="text" className='form-control form-control-sm' name='nombres' id='nombres' value={form.nombres || ''} onChange={handleChange} autoComplete='off' />
+                                        </div>
+                                        <div className='group-form mb-2'>
+                                            <label htmlFor="" className='form-label'>Apellidos</label>
+                                            <input type="text" className='form-control form-control-sm' name='apellidos' id='apellidos' value={form.apellidos || ''} onChange={handleChange} autoComplete='off' />
+                                        </div>
+                                        <div className='group-form mb-2'>
+                                            <label htmlFor="" className='form-label'>Número Celular</label>
+                                            <input type="number" className='form-control form-control-sm' name='telefono' id='telefono' value={form.telefono || ''} onChange={handleChange} autoComplete='off' />
+                                        </div>
+                                        <div className='group-form mb-2'>
+                                            <label htmlFor="" className='form-label'>Número Documento</label>
+                                            <input type="number" className='form-control form-control-sm' name='documento' id='documento' value={form.documento || ''} onChange={handleChange} autoComplete='off' />
+                                        </div>
 
-                                </div>
-                                <div className='col-md-6'>
-                                    <div className='group-form mb-2'>
-                                        <label htmlFor="" className='form-label'>Seleccione el rol</label>
-                                        <select
-                                            name="rol"
-                                            id="rol"
-                                            className='form-select form-select-sm'
-                                            value={form.rol || ''}
-                                            onChange={handleChange}>
-                                            <option value=""> -- seleccionar --</option>
-                                            {
-                                                dataRol.results && dataRol.results.map((el, id) => (
-                                                    <option key={id} value={el.ncodigo}>{el.vnombre}</option>
-                                                ))
-                                            }
-                                        </select>
                                     </div>
-                                    {form.rol != 1 ? <div className='group-form mb-2'>
-                                        <label htmlFor="" className='form-label'>Seleccione el privilegio</label>
-                                        <select
-                                            name="privilegio"
-                                            id="privilegio"
-                                            className='form-select form-select-sm'
-                                            aria-label="Default select example"
-                                            value={form.privilegio || ''}
-                                            onChange={handleChange}>
-                                            <option value="" > -- seleccionar --</option>
-                                            {
-                                                dataPrivg.results && dataPrivg.results.map((el, id) => (
-                                                    <option key={id} value={el.ncodigo}>{el.vnombre}</option>
-                                                ))
-                                            }
-                                        </select>
-                                    </div> : ''
+                                    <div className='col-md-6'>
+                                        <div className='group-form mb-2'>
+                                            <label htmlFor="" className='form-label'>Seleccione el rol</label>
+                                            <select
+                                                name="rol"
+                                                id="rol"
+                                                className='form-select form-select-sm'
+                                                value={form.rol || ''}
+                                                onChange={handleChange}>
+                                                <option value=""> -- seleccionar --</option>
+                                                {
+                                                    dataRol.results && dataRol.results.map((el, id) => (
+                                                        <option key={id} value={el.ncodigo}>{el.vnombre}</option>
+                                                    ))
+                                                }
+                                            </select>
+                                        </div>
+                                        {form.rol != 1 ? <div className='group-form mb-2'>
+                                            <label htmlFor="" className='form-label'>Seleccione el privilegio</label>
+                                            <select
+                                                name="privilegio"
+                                                id="privilegio"
+                                                className='form-select form-select-sm'
+                                                aria-label="Default select example"
+                                                value={form.privilegio || ''}
+                                                onChange={handleChange}>
+                                                <option value="" > -- seleccionar --</option>
+                                                {
+                                                    dataPrivg.results && dataPrivg.results.map((el, id) => (
+                                                        <option key={id} value={el.ncodigo}>{el.vnombre}</option>
+                                                    ))
+                                                }
+                                            </select>
+                                        </div> : ''
 
-                                    }
-                                    <div className='group-form mb-2'>
-                                        <label htmlFor="" className='form-label'>Usuario</label>
-                                        <input type="text" name='usuario' id='usuario' className='form-control form-control-sm' value={form.usuario || ''} onChange={handleChange} />
-                                    </div>
-                                    <div className='group-form mb-2'>
-                                        <label htmlFor="" className='form-label'>Clave</label>
-                                        <input type="password" name="pass" id="pass" className='form-control form-control-sm' value={form.pass || ''} onChange={handleChange} autoComplete='off' />
+                                        }
+                                        <div className='group-form mb-2'>
+                                            <label htmlFor="" className='form-label'>Usuario</label>
+                                            <input type="text" name='usuario' id='usuario' className='form-control form-control-sm' value={form.usuario || ''} onChange={handleChange} />
+                                        </div>
+                                        <div className='group-form mb-2'>
+                                            <label htmlFor="" className='form-label'>Clave</label>
+                                            <input type="password" name="pass" id="pass" className='form-control form-control-sm' value={form.pass || ''} onChange={handleChange} autoComplete='off' />
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            </form>
                         </div>
                         <div className="modal-footer">
                             <button type="button" className="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
@@ -215,14 +217,14 @@ function Usuarios() {
             console.log(data);
             setForm({
                 ...form,
-                codigo : data.ncodigo,
-                nombres : data.vnombre,
-                apellidos : data.vapellido,
-                telefono : data.vtelefono,
-                documento : data.vdocumento,
-                usuario : data.vusuario,
-                rol : data.nrol,
-                privilegio : data.nprivilegio,
+                codigo: data.ncodigo,
+                nombres: data.vnombre,
+                apellidos: data.vapellido,
+                telefono: data.vtelefono,
+                documento: data.vdocumento,
+                usuario: data.vusuario,
+                rol: data.nrol,
+                privilegio: data.nprivilegio,
             })
         }
 
