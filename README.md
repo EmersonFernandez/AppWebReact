@@ -52,12 +52,14 @@ La aplicación está configurada para interactuar con una API externa, manejando
 **Usuario**: emerson <br/>
 **Contraseña**: 1234 <br/>
 - Como administrador, tienes acceso completo para administrar todo el sistema.
+  
 <br/>
 
 **Rol**: Supervisor <br/>
 **Usuario**: jose <br/>
 **Contraseña**: 1234 <br/>
 - Como supervisor, puedes gestionar los productos en la aplicación.
+  
 <br/>
 
 **Rol**: Cliente <br/>
@@ -66,19 +68,20 @@ La aplicación está configurada para interactuar con una API externa, manejando
 - Como cliente, tienes acceso solo a la vista del catálogo de productos.
 
 <br/>
+
 **Rol**: Vendedor <br/>
 **Usuario**: carlos <br/>
 **Contraseña**: 1234 <br/>
 - Como vendedor, puedes gestionar los productos en la aplicación.
 
 ### Funcionalidades por Rol:
-- **Administrador:**   Acceso completo para administrar usuarios, productos y otras configuraciones del sistema.
+- ***Administrador:***   Acceso completo para administrar usuarios, productos y otras configuraciones del sistema.
 
-- **Supervisor:** Puede gestionar productos: crear, editar y eliminar productos.
+- ***Supervisor:*** Puede gestionar productos: crear, editar y eliminar productos.
 
-- **Cliente:** Acceso limitado a la vista del catálogo de productos.
+- ***Cliente:*** Acceso limitado a la vista del catálogo de productos.
 
-- **Vendedor:**Puede gestionar productos: crear, editar y eliminar productos.
+- ***Vendedor:*** Puede gestionar productos: crear, editar y eliminar productos.
 
 ### Instrucciones de Uso
 Visita Aplicación Web React en tu navegador.
