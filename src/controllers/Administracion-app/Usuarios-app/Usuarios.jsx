@@ -245,8 +245,8 @@ function Usuarios() {
         } else if (operacion == 2) {
             const response = await axios.put(url, form, { withCredentials: true });
             if (response.data.error) {
-                SweetAlertGenerteWithToast(response.data.message || response.data.errorMessage, 'error');
-                console.log(response.data.errorMesagge);
+                SweetAlertGenerteWithToast(response.data.message || response.data.errorMesagge, 'error');
+
             } else {
                 SweetAlertGenerteWithToast(response.data.message, 'success');
                 document.getElementById('modalClose').click();
