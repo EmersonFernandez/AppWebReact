@@ -3,6 +3,7 @@ import axios from 'axios'
 import { axiosDataGet } from '../../../funcions/axiosDatas'
 import { SweetAlertGenerteWithToast } from '../../../funcions/sweet-alert'
 import Swal from 'sweetalert2'
+import { data } from 'jquery'
 
 
 
@@ -246,7 +247,7 @@ function Usuarios() {
             const response = await axios.put(url, form, { withCredentials: true });
             if (response.data.error) {
                 SweetAlertGenerteWithToast(response.data.message || response.data.errorMesagge, 'error');
-
+                console.log(response);
             } else {
                 SweetAlertGenerteWithToast(response.data.message, 'success');
                 document.getElementById('modalClose').click();
