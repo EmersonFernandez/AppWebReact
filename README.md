@@ -47,28 +47,28 @@ La aplicación está configurada para interactuar con una API externa, manejando
 ## Uso
 <p>Para utilizar la aplicación, puedes acceder a la siguiente URL: Aplicación Web React </p>
 
-##### Credenciales de Usuario:
+#### Credenciales de Usuario:
 **Rol**: Administrador <br/>
 **Usuario**: emerson <br/>
 **Contraseña**: 1234 <br/>
 - Como administrador, tienes acceso completo para administrar todo el sistema.
 <br/>
 
-**Rol**: Supervisor
-**Usuario**: jose
-**Contraseña**: 1234
+**Rol**: Supervisor <br/>
+**Usuario**: jose <br/>
+**Contraseña**: 1234 <br/>
 - Como supervisor, puedes gestionar los productos en la aplicación.
 <br/>
 
-**Rol**: Cliente
-**Usuario**: pedro
-**Contraseña**: 1234
+**Rol**: Cliente <br/>
+**Usuario**: pedro <br/>
+**Contraseña**: 1234 <br/>
 - Como cliente, tienes acceso solo a la vista del catálogo de productos.
 
 <br/>
-**Rol**: Vendedor
-**Usuario**: carlos
-**Contraseña**: 1234
+**Rol**: Vendedor <br/>
+**Usuario**: carlos <br/>
+**Contraseña**: 1234 <br/>
 - Como vendedor, puedes gestionar los productos en la aplicación.
 
 ### Funcionalidades por Rol:
