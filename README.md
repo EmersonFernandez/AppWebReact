@@ -43,3 +43,50 @@ La aplicación está configurada para interactuar con una API externa, manejando
 - Bootstrap 5 - Framework CSS para diseño responsivo y estilización de la aplicación.
 - Bootstrap Icons - Conjunto de íconos optimizados para Bootstrap, para mejorar la interfaz gráfica.
 - SweetAlert2 - Biblioteca JavaScript para mostrar alertas personalizadas más atractivas y funcionales que los cuadros de diálogo estándar.
+
+## Uso
+<p>Para utilizar la aplicación, puedes acceder a la siguiente URL: Aplicación Web React </p>
+
+##### Credenciales de Usuario:
+**Rol**: Administrador
+**Usuario**: emerson
+**Contraseña**: 1234
+- Como administrador, tienes acceso completo para administrar todo el sistema.
+<br/>
+
+**Rol**: Supervisor
+**Usuario**: jose
+**Contraseña**: 1234
+- Como supervisor, puedes gestionar los productos en la aplicación.
+<br/>
+
+**Rol**: Cliente
+**Usuario**: pedro
+**Contraseña**: 1234
+- Como cliente, tienes acceso solo a la vista del catálogo de productos.
+
+<br/>
+**Rol**: Vendedor
+**Usuario**: carlos
+**Contraseña**: 1234
+- Como vendedor, puedes gestionar los productos en la aplicación.
+
+### Funcionalidades por Rol:
+ **Administrador:**   Acceso completo para administrar usuarios, productos y otras configuraciones del sistema.
+
+**Supervisor:** Puede gestionar productos: crear, editar y eliminar productos.
+
+**Cliente:** Acceso limitado a la vista del catálogo de productos.
+
+**Vendedor:**Puede gestionar productos: crear, editar y eliminar productos.
+
+### Instrucciones de Uso
+Visita Aplicación Web React en tu navegador.
+
+Ingresa con las credenciales correspondientes al rol que deseas probar (administrador, supervisor, cliente o vendedor).
+
+Explora las funcionalidades disponibles según tu rol.
+
+>Notas Importantes:
+Asegúrate de utilizar las credenciales correctas según el rol que deseas probar.
+Si tienes problemas de acceso o dudas, comunícate con el administrador del sistema.
