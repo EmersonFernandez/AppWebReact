@@ -208,6 +208,7 @@ function Usuarios() {
             }
             setForm(formReset);
             
+            
         }else if(op == 2){
             setTitle('Actulizar usuario');
             setBtnText('Actulizar');
