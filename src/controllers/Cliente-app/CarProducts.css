@@ -228,6 +228,9 @@
         padding: 3px 6px; /* Ajustar padding de botones en dispositivos móviles */
     }
 
+    .cart{
+        width: 350px;
+    }
     .cart-item-info {
         display: flex;
         flex-direction: column;
