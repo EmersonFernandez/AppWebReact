@@ -4,6 +4,7 @@ import {useNavigate, Navigate} from 'react-router-dom';
 import { axiosDataGet } from '../../../funcions/axiosDatas'
 import { SweetAlertGenerteWithToast, SessionExperix_alert } from '../../../funcions/sweet-alert'
 import Swal from 'sweetalert2'
+import { camposVacios } from '../../../funcions/otros'
 
 
 
@@ -238,7 +239,7 @@ function Usuarios() {
 
             if (form.nombres == '' || form.apellidos == '' || form.telefono == '' || form.documento == '' || form.usuario == '' || form.rol == '' || form.privilegio == '' ) {
                 //await camposVacios(form, 'red', 'y');
-                console.log('entro al validar los datos');
+                await camposVacios(form, 'red', 'y');
                 return SweetAlertGenerteWithToast('Todos los campos son obligatorios', 'info');
             };
 
