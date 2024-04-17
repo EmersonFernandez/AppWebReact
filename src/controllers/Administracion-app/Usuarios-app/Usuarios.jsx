@@ -258,7 +258,7 @@ function Usuarios() {
               //  SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => navigate('/'));
                 //navigate('/', { replace: true });
                // console.log('entro');
-                return <Navigate to={'/'} replace/>;
+                return navigate('/');
             }
 
             if (response.data.error) {
