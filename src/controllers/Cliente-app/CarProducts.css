@@ -75,6 +75,11 @@
     border-bottom: 1px solid #ddd;
 }
 
+.product-name,
+.product-price {
+    font-size: 14px; /* Reducir tamaño de fuente en dispositivos móviles */
+}
+
 .cart-item-info {
     flex: 1;
 }
@@ -174,6 +179,7 @@
     justify-content: space-around;
     align-items: center;
 }
+
 .cart .header button{
     position: absolute;
     top: -1rem;
