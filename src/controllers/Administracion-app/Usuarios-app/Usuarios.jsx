@@ -1,6 +1,6 @@
 import React, { useEffect, useState,  } from 'react'
 import axios from 'axios'
-import {useNavigate} from 'react-router-dom';
+import {useNavigate, Navigate} from 'react-router-dom';
 import { axiosDataGet } from '../../../funcions/axiosDatas'
 import { SweetAlertGenerteWithToast, SessionExperix_alert } from '../../../funcions/sweet-alert'
 import Swal from 'sweetalert2'
@@ -237,7 +237,7 @@ function Usuarios() {
             const response = await axios.post(url, form, { withCredentials: true });
 
             if(response.data.error && Number(response.data.status) == 401){
-                SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => navigate('/'));
+              //  SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => navigate('/'));
                // navigate('/', { replace: true });
                // console.log('entro');
                 return null;
@@ -255,10 +255,10 @@ function Usuarios() {
             const response = await axios.put(url, form, { withCredentials: true });
 
             if(response.data.error && Number(response.data.status) == 401){
-                SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => navigate('/'));
+              //  SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => navigate('/'));
                 //navigate('/', { replace: true });
                // console.log('entro');
-                return null;
+                return <Navigate to={'/'} replace/>;
             }
 
             if (response.data.error) {
