@@ -18,6 +18,9 @@ export const SessionExperix_alert = (message, text, icon, redirectFunction) => {
     });
 }
 
+
+
+
 export const SweetAlertGenerteWithToast = (message, icon) => {
     return Swal.fire({
         title: message,
