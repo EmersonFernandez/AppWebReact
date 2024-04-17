@@ -237,7 +237,8 @@ function Usuarios() {
             const response = await axios.post(url, form, { withCredentials: true });
 
             if(response.data.error && Number(response.data.status) == 401){
-                SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => navegate('/'));
+                //SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => navegate('/'));
+                navegate('/')
                 console.log('entro');
                 return null;
             }
