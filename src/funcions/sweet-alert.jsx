@@ -1,6 +1,5 @@
 // funciones de sweet alerts
 import Swal from 'sweetalert2'
-import {useNavigate} from 'react-router-dom'
 
 export const SessionExperix_alert = (message, text, icon, redirectFunction) => {
     return Swal.fire({
@@ -13,15 +12,11 @@ export const SessionExperix_alert = (message, text, icon, redirectFunction) => {
         confirmButtonText: "Iniciar Sesión",
     }).then((result) => {
         if (result.isConfirmed) {
-            
-            const navigate = useNavigate();
-            //redirectFunction();
-            navigate('/');
+            redirectFunction();
+            //window.location.reload();
         }
     });
 }
-
-
 
 
 export const SweetAlertGenerteWithToast = (message, icon) => {
