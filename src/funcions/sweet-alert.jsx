@@ -2,7 +2,6 @@
 import Swal from 'sweetalert2'
 import {useNavigate} from 'react-router-dom'
 
-const navigate = useNavigate();
 export const SessionExperix_alert = (message, text, icon, redirectFunction) => {
     return Swal.fire({
         title: message,
@@ -14,6 +13,8 @@ export const SessionExperix_alert = (message, text, icon, redirectFunction) => {
         confirmButtonText: "Iniciar Sesión",
     }).then((result) => {
         if (result.isConfirmed) {
+            
+            const navigate = useNavigate();
             //redirectFunction();
             navigate('/');
         }
