@@ -236,6 +236,12 @@ function Usuarios() {
         if (operacion == 1) {
             const response = await axios.post(url, form, { withCredentials: true });
 
+            if (form.nombres == '' || form.apellidos == '' || form.telefono == '' || form.documento == ''
+            || form.usuario == '' || form.rol == '' || form.privilegio == '' ) {
+                //await camposVacios(form, 'red', 'y');
+                return SweetAlertGenerteWithToast('Todos los campos son obligatorios', 'info');
+            };
+
             if(response.data.error && Number(response.data.status) == 401){
                 SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => {
                     navigate('/')

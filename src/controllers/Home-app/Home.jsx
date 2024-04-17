@@ -1,9 +1,10 @@
+import React from 'react';
 
 function Home() {
     return (
         <>
-            <div className="d-flex justify-content-center align-center">
-                <p>Bienbenido</p>
+            <div style={{ height: '100vh' }} className="d-flex justify-content-center align-items-center">
+                <p>Bienvenido al sistema</p>
             </div>
         </>
     );
