@@ -255,7 +255,7 @@ function Usuarios() {
             const response = await axios.put(url, form, { withCredentials: true });
 
             if(response.data.error && Number(response.data.status) == 401){
-                SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => handleClick());
+                SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => document.getElementById('btnLogin').click());
                 //navigate('/', { replace: true });
                // console.log('entro');
                 return;
@@ -327,7 +327,7 @@ function Usuarios() {
                         handleDeleteUser={handleDeleteUser}
                     />
                 </div>
-                <button onClick={handleClick}>Ir a Otra Ruta</button>
+                <button id='btnLogin' style={{display:'none'}} onClick={handleClick}>/</button>
             </div>
             <ModalUsuario
                 form={form}
