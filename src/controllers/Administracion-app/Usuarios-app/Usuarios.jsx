@@ -238,7 +238,7 @@ function Usuarios() {
 
             if(response.data.error && Number(response.data.status) == 401){
                 //SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => navegate('/'));
-                navegate('/')
+                navegate('/', { replace: true });
                 console.log('entro');
                 return null;
             }
@@ -256,7 +256,7 @@ function Usuarios() {
 
             if(response.data.error && Number(response.data.status) == 401){
                 //SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => navegate('/'));
-                navegate('/')
+                navegate('/', { replace: true });
                 console.log('entro');
                 return null;
             }
