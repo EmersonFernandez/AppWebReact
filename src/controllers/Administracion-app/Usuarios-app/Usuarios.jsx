@@ -238,7 +238,8 @@ function Usuarios() {
 
             if(response.data.error && Number(response.data.status) == 401){
                 SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => navegate('/'));
-                return;
+                console.log('entro');
+                return null;
             }
 
             if (response.data.error) {
@@ -254,7 +255,8 @@ function Usuarios() {
 
             if(response.data.error && Number(response.data.status) == 401){
                 SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => navegate('/'));
-                return;
+                console.log('entro');
+                return null;
             }
 
             if (response.data.error) {
