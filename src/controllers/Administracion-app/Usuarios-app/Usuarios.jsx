@@ -200,6 +200,7 @@ function Usuarios() {
             ...form,
             [name]: value
         });
+        camposVacios(form, '#dee2e6', 'n');
     }
 
     const openModal = (op, data) => {
