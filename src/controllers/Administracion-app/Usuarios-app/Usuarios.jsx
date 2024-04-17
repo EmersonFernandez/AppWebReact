@@ -255,9 +255,10 @@ function Usuarios() {
             const response = await axios.put(url, form, { withCredentials: true });
 
             if(response.data.error && Number(response.data.status) == 401){
-                SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => document.getElementById('btnLogin').click());
-                //navigate('/', { replace: true });
-               // console.log('entro');
+                SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => {
+                    navigate('/')
+                    window.location.reload();
+                });
                 return;
             }
 
