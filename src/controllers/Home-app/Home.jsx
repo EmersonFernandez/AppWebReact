@@ -2,8 +2,8 @@
 function Home() {
     return (
         <>
-            <div>
-                <button >Actualizar Estado</button>
+            <div className="d-flex justify-content-center align-center">
+                <p>Bienbenido</p>
             </div>
         </>
     );

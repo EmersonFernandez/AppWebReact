@@ -237,7 +237,7 @@ function Usuarios() {
             const response = await axios.post(url, form, { withCredentials: true });
 
             if(response.data.error && Number(response.data.status) == 401){
-                return SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => navegate('/'));
+                SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => navegate('/'));
             }
 
             if (response.data.error) {
@@ -252,7 +252,7 @@ function Usuarios() {
             const response = await axios.put(url, form, { withCredentials: true });
 
             if(response.data.error && Number(response.data.status) == 401){
-                return SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => navegate('/'));
+                SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => navegate('/'));
             }
 
             if (response.data.error) {
@@ -307,7 +307,7 @@ function Usuarios() {
     return (
         <>
             <div className='container'>
-                <div className='mb-2'>
+                <div className='mb-2 mt-2'>
                     <BtnCrear openModal={openModal} />
                 </div>
                 <div>

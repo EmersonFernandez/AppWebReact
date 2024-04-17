@@ -212,7 +212,7 @@ function Products() {
         <>
             <div className='container'>
                 {/* btn crear */}
-                <div className='mb-2'>
+                <div className='mb-2 mt-2'>
                     <BtnCreate disabled={disabled} openModal={openModal} />
                 </div>
                 {/* tabla de visualizacion de los productos */}
