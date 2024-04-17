@@ -113,7 +113,7 @@ function Products() {
                     { withCredentials: true, });
 
 
-                    if(response.data.error && Number(response.data.status) == 401){
+                    if(respuesta.data.error && Number(response.data.status) == 401){
                         SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => {
                             navigate('/')
                             window.location.reload();
@@ -132,7 +132,7 @@ function Products() {
                 } else if (respuesta.data.error === true) {
                     SweetAlertGenerteWithToast(respuesta.data.errorMessage, 'error');
                 }
-                
+
             } catch (error) {
                 SweetAlertGenerteWithToast('Error al guardar el regsitro', 'error');
                 console.log(error);
@@ -150,7 +150,7 @@ function Products() {
                     },
                     { withCredentials: true, });
 
-                    if(response.data.error && Number(response.data.status) == 401){
+                    if(respuesta.data.error && Number(response.data.status) == 401){
                         SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => {
                             navigate('/')
                             window.location.reload();
