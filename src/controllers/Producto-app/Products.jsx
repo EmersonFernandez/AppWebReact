@@ -3,9 +3,10 @@ import './Products.css'
 import TableProducts from './TableProducts';
 import BtnCreate from './BtnCreate';
 import axios from 'axios'
-import { SweetAlertGenerteWithToast } from '../../funcions/sweet-alert';
+import { SweetAlertGenerteWithToast, SessionExperix_alert } from '../../funcions/sweet-alert';
 import ModalProduct from './ModalProduct'
 import { camposVacios } from '../../funcions/otros'
+import { useNavigate } from 'react-router-dom'
 
 
 
@@ -16,7 +17,7 @@ function Products() {
     const [btnText, setBtnText] = useState('Guardar');
     const [operacion, setOperacion] = useState(1);
     const [productos, setProductos] = useState([]);
-
+    const navegate = useNavigate();
     const [disabled, setDisabled] = useState({
         addDisabled: false,
         updateDisabled: false,
@@ -111,6 +112,11 @@ function Products() {
                     },
                     { withCredentials: true, });
 
+
+                if (respuesta.data.error && Number(response.data.status) == 401) {
+                    return SessionExperix_alert('Tu sesión ha expirado', '¿Desea nuevamente iniciar sesión?', 'info', () => navegate('/'));
+                }
+
                 if (file) {
                     await addImgProductos(respuesta.data.idProduct);
                 }
@@ -138,6 +144,10 @@ function Products() {
                         precio: form.precio,
                     },
                     { withCredentials: true, });
+
+                if (respuesta.data.error && Number(response.data.status) == 401) {
+                    return SessionExperix_alert('Tu sesión ha expirado', '¿Desea nuevamente iniciar sesión?', 'info', () => navegate('/'));
+                }
 
                 if (file) {
                     await addImgProductos(form.codigo);
@@ -169,6 +179,9 @@ function Products() {
         } else {
             setProductos(response.data.results);
             const privilegios = Number(response.data.token.privilegio);
+            if (response.data.error && Number(response.data.status) == 401) {
+                return SessionExperix_alert('Tu sesión ha expirado', '¿Desea nuevamente iniciar sesión?', 'info', () => navegate('/'));
+            }
             if (privilegios === 2) {
                 setDisabled({
                     ...disabled,
