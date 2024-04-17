@@ -236,9 +236,9 @@ function Usuarios() {
         if (operacion == 1) {
             const response = await axios.post(url, form, { withCredentials: true });
 
-            if (form.nombres == '' || form.apellidos == '' || form.telefono == '' || form.documento == ''
-            || form.usuario == '' || form.rol == '' || form.privilegio == '' ) {
+            if (form.nombres == '' || form.apellidos == '' || form.telefono == '' || form.documento == '' || form.usuario == '' || form.rol == '' || form.privilegio == '' ) {
                 //await camposVacios(form, 'red', 'y');
+                console.log('entro al validar los datos');
                 return SweetAlertGenerteWithToast('Todos los campos son obligatorios', 'info');
             };
 
