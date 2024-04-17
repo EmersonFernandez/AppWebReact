@@ -17,7 +17,7 @@ function Products() {
     const [btnText, setBtnText] = useState('Guardar');
     const [operacion, setOperacion] = useState(1);
     const [productos, setProductos] = useState([]);
-    const navegate = useNavigate();
+    const navigate = useNavigate();
     const [disabled, setDisabled] = useState({
         addDisabled: false,
         updateDisabled: false,
@@ -113,9 +113,13 @@ function Products() {
                     { withCredentials: true, });
 
 
-                if (respuesta.data.error && Number(response.data.status) == 401) {
-                    return SessionExperix_alert('Tu sesión ha expirado', '¿Desea nuevamente iniciar sesión?', 'info', () => navegate('/'));
-                }
+                    if(response.data.error && Number(response.data.status) == 401){
+                        SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => {
+                            navigate('/')
+                            window.location.reload();
+                        });
+                        return;
+                    }
 
                 if (file) {
                     await addImgProductos(respuesta.data.idProduct);
@@ -128,6 +132,7 @@ function Products() {
                 } else if (respuesta.data.error === true) {
                     SweetAlertGenerteWithToast(respuesta.data.errorMessage, 'error');
                 }
+                
             } catch (error) {
                 SweetAlertGenerteWithToast('Error al guardar el regsitro', 'error');
                 console.log(error);
@@ -145,9 +150,13 @@ function Products() {
                     },
                     { withCredentials: true, });
 
-                if (respuesta.data.error && Number(response.data.status) == 401) {
-                    return SessionExperix_alert('Tu sesión ha expirado', '¿Desea nuevamente iniciar sesión?', 'info', () => navegate('/'));
-                }
+                    if(response.data.error && Number(response.data.status) == 401){
+                        SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => {
+                            navigate('/')
+                            window.location.reload();
+                        });
+                        return;
+                    }
 
                 if (file) {
                     await addImgProductos(form.codigo);
@@ -179,8 +188,12 @@ function Products() {
         } else {
             setProductos(response.data.results);
             const privilegios = Number(response.data.token.privilegio);
-            if (response.data.error && Number(response.data.status) == 401) {
-                return SessionExperix_alert('Tu sesión ha expirado', '¿Desea nuevamente iniciar sesión?', 'info', () => navegate('/'));
+            if(response.data.error && Number(response.data.status) == 401){
+                SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => {
+                    navigate('/')
+                    window.location.reload();
+                });
+                return;
             }
             if (privilegios === 2) {
                 setDisabled({

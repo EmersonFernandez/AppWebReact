@@ -237,10 +237,11 @@ function Usuarios() {
             const response = await axios.post(url, form, { withCredentials: true });
 
             if(response.data.error && Number(response.data.status) == 401){
-              //  SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => navigate('/'));
-               // navigate('/', { replace: true });
-               // console.log('entro');
-                return null;
+                SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => {
+                    navigate('/')
+                    window.location.reload();
+                });
+                return;
             }
 
             if (response.data.error) {
@@ -289,7 +290,11 @@ function Usuarios() {
                     const response = await axios.delete(`${url}/${id}`, { withCredentials: true });
 
                     if(response.data.error && Number(response.data.status) == 401){
-                        return SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => navigate('/'));
+                        SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => {
+                            navigate('/')
+                            window.location.reload();
+                        });
+                        return;
                     }
 
                     if (response.data.error) {
@@ -311,9 +316,6 @@ function Usuarios() {
 
     }
 
-    const handleClick = () => {
-        navigate('/');
-    };
 
     return (
         <>
@@ -328,7 +330,6 @@ function Usuarios() {
                         handleDeleteUser={handleDeleteUser}
                     />
                 </div>
-                <button id='btnLogin' style={{display:'none'}} onClick={handleClick}>/</button>
             </div>
             <ModalUsuario
                 form={form}

@@ -5,7 +5,6 @@ import Swal from 'sweetalert2'
 
 
 export const SessionExperix_alert = (message, text, icon, redirectFunction) => {
-    const navigate = useNavigate();
     return Swal.fire({
         title: message,
         text: text,
@@ -16,9 +15,7 @@ export const SessionExperix_alert = (message, text, icon, redirectFunction) => {
         confirmButtonText: "Iniciar Sesión",
     }).then((result) => {
         if (result.isConfirmed) {
-            
-            navigate('/');
-           // redirectFunction();
+            redirectFunction();
             //window.location.reload();
         }
     });

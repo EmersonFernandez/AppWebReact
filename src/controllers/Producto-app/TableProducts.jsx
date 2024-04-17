@@ -8,7 +8,7 @@ import ImageViewer from './ImageViewer';
 
 function TableProducts({ url, disabled, openModal, showProducts, productos, update }) {
 
-    const navegate = useNavigate();
+    const navigate = useNavigate();
 
     useEffect(() => {
         showProducts();
@@ -31,10 +31,13 @@ function TableProducts({ url, disabled, openModal, showProducts, productos, upda
                         `${url}/${id}`,
                         { withCredentials: true, });
 
-                    if (response.data.error && Number(response.data.status) == 401) {
-                        return SessionExperix_alert('Tu sesión ha expirado', '¿Desea nuevamente iniciar sesión?', 'info', () => navegate('/'));
-                    }
-
+                        if(response.data.error && Number(response.data.status) == 401){
+                            SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => {
+                                navigate('/')
+                                window.location.reload();
+                            });
+                            return;
+                        }
                     if (response.data.error === false) {
                         showProducts();
                         SweetAlertGenerteWithToast(response.data.message, 'success');
