@@ -310,6 +310,10 @@ function Usuarios() {
 
     }
 
+    const handleClick = () => {
+        navigate('/home');
+    };
+
     return (
         <>
             <div className='container'>
@@ -323,6 +327,7 @@ function Usuarios() {
                         handleDeleteUser={handleDeleteUser}
                     />
                 </div>
+                <button onClick={handleClick}>Ir a Otra Ruta</button>
             </div>
             <ModalUsuario
                 form={form}
