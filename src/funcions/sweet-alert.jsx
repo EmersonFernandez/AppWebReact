@@ -13,6 +13,7 @@ export const SessionExperix_alert = (message, text, icon, redirectFunction) => {
     }).then((result) => {
         if (result.isConfirmed) {
             redirectFunction();
+            window.location.reload();
         }
     });
 }

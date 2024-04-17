@@ -166,7 +166,7 @@ function Usuarios() {
     const [dataUsers, setDataUsers] = useState([]);
     const [dataRol, setDataRol] = useState([]);
     const [dataPrivg, setDataPrivg] = useState([]);
-    const navegate = useNavigate();
+    const navigate = useNavigate();
     const axiosUser = async () => {
         const response = await axiosDataGet(url);
         setDataUsers(response);
@@ -237,9 +237,9 @@ function Usuarios() {
             const response = await axios.post(url, form, { withCredentials: true });
 
             if(response.data.error && Number(response.data.status) == 401){
-                //SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => navegate('/'));
-                navegate('/', { replace: true });
-                console.log('entro');
+                SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => navigate('/'));
+               // navigate('/', { replace: true });
+               // console.log('entro');
                 return null;
             }
 
@@ -255,9 +255,9 @@ function Usuarios() {
             const response = await axios.put(url, form, { withCredentials: true });
 
             if(response.data.error && Number(response.data.status) == 401){
-                //SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => navegate('/'));
-                navegate('/', { replace: true });
-                console.log('entro');
+                SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => navigate('/'));
+                //navigate('/', { replace: true });
+               // console.log('entro');
                 return null;
             }
 
@@ -288,7 +288,7 @@ function Usuarios() {
                     const response = await axios.delete(`${url}/${id}`, { withCredentials: true });
 
                     if(response.data.error && Number(response.data.status) == 401){
-                        return SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => navegate('/'));
+                        return SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => navigate('/'));
                     }
 
                     if (response.data.error) {
