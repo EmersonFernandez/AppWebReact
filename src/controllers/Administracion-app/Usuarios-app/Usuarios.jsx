@@ -239,7 +239,7 @@ function Usuarios() {
 
     const handleAddUpdate = async () => {
 
-        if (!form || form.nombres == '' || form.apellidos == '' || form.telefono == '' || form.documento == '' || form.usuario == '' || form.rol == '' || form.privilegio == '' ) {
+        if (true) {
             //await camposVacios(form, 'red', 'y');
             
             //camposVacios(form, 'red', 'y');
