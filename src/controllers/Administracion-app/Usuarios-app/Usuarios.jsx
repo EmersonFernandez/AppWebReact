@@ -234,17 +234,23 @@ function Usuarios() {
         setOperacion(op)
     }
 
+
+
+
     const handleAddUpdate = async () => {
 
-        if (form.nombres == '' || form.apellidos == '' || form.telefono == '' || form.documento == '' || form.usuario == '' || form.rol == '' || form.privilegio == '' ) {
-            //await camposVacios(form, 'red', 'y');
+        // if (form.nombres == '' || form.apellidos == '' || form.telefono == '' || form.documento == '' || form.usuario == '' || form.rol == '' || form.privilegio == '' ) {
+        //     //await camposVacios(form, 'red', 'y');
             
-            //camposVacios(form, 'red', 'y');
-            return SweetAlertGenerteWithToast('Todos los campos son obligatorios', 'info');
-        };
-        
+        //     //camposVacios(form, 'red', 'y');
+        //     return SweetAlertGenerteWithToast('Todos los campos son obligatorios', 'info');
+        // };
+
+        console.log(form);
+
         if (operacion == 1) {
             const response = await axios.post(url, form, { withCredentials: true });
+
             if(response.data.error && Number(response.data.status) == 401){
                 SessionExperix_alert('Tu sesión ha expirado','¿Desea nuevamente iniciar sesión?','info',() => {
                     navigate('/')
@@ -261,6 +267,7 @@ function Usuarios() {
                 axiosUser();
 
             }
+
         } else if (operacion == 2) {
             const response = await axios.put(url, form, { withCredentials: true });
 
@@ -282,6 +289,11 @@ function Usuarios() {
             }
         }
     }
+
+
+
+
+
 
     const handleDeleteUser = async (id, nombre) => {
 
