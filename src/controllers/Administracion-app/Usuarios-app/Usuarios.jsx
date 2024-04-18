@@ -219,7 +219,7 @@ function Usuarios() {
                 privilegio: ''
             })
 
-
+            camposVacios(form, '#dee2e6', 'y');
         } else if (op == 2) {
             setTitle('Actulizar usuario');
             setBtnText('Actulizar');
@@ -235,6 +235,7 @@ function Usuarios() {
                 rol: data.nrol,
                 privilegio: data.nprivilegio,
             })
+            camposVacios(form, '#dee2e6', 'n');
         }
 
         setOperacion(op)
