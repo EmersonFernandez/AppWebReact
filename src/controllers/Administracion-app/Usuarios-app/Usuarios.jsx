@@ -239,12 +239,12 @@ function Usuarios() {
 
     const handleAddUpdate = async () => {
 
-        // if (form.nombres == '' || form.apellidos == '' || form.telefono == '' || form.documento == '' || form.usuario == '' || form.rol == '' || form.privilegio == '' ) {
-        //     //await camposVacios(form, 'red', 'y');
+        if (!form || form.nombres == '' || form.apellidos == '' || form.telefono == '' || form.documento == '' || form.usuario == '' || form.rol == '' || form.privilegio == '' ) {
+            //await camposVacios(form, 'red', 'y');
             
-        //     //camposVacios(form, 'red', 'y');
-        //     return SweetAlertGenerteWithToast('Todos los campos son obligatorios', 'info');
-        // };
+            //camposVacios(form, 'red', 'y');
+            return SweetAlertGenerteWithToast('Todos los campos son obligatorios', 'info');
+        };
 
         console.log(form);
 
