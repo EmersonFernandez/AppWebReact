@@ -97,6 +97,7 @@ function Products() {
     // Agregar y Actualizar
     const handleOnClickAddUpdate = async () => {
         if (form.codProducto == '' || form.nombre == '' || form.descripcion == '' || form.precio == '') {
+            console.log(form);
             await camposVacios(form, 'red', 'y');
             return SweetAlertGenerteWithToast('Todos los campos son obligatorios', 'info');
         };
