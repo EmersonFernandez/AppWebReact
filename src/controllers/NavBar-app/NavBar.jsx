@@ -93,9 +93,6 @@ function NavBar() {
                                         {globalState.data && `${globalState.data.nombres} ${globalState.data.apellidos}`}
                                     </a>
                                     <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                        <li><a className="dropdown-item" href="#">Action</a></li>
-                                        <li><a className="dropdown-item" href="#">Another action</a></li>
-                                        <li><hr className="dropdown-divider" /></li>
                                         <li><button className="dropdown-item" onClick={CloseSession}>Cerrar Sesión</button></li>
                                     </ul>
                                 </div>
