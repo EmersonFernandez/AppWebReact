@@ -207,11 +207,17 @@ function Usuarios() {
         if (op == 1) {
             setTitle('Registro de usuarios');
             setBtnText('Guardar');
-            const formReset = {};
-            for (const key in form) {
-                formReset[key] = ''; // Establece cada valor a una cadena vacía
-            }
-            setForm(formReset);
+            setForm({
+                ...form,
+                codigo: '',
+                nombres: '',
+                apellidos: '',
+                telefono: '',
+                documento: '',
+                usuario: '',
+                rol: '',
+                privilegio: ''
+            })
 
 
         } else if (op == 2) {
@@ -241,7 +247,7 @@ function Usuarios() {
 
         if (true) {
             //await camposVacios(form, 'red', 'y');
-            
+            console.log(form);
             //camposVacios(form, 'red', 'y');
             return SweetAlertGenerteWithToast('Todos los campos son obligatorios', 'info');
         };
