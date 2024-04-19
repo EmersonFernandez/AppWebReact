@@ -26,12 +26,12 @@ function ModalProduct({ form, handleChange, title, btnText,addAndUpdate,handleFi
                                             <label htmlFor="" className='form-label'>Precio</label>
                                             <input type="number" className='form-control form-control-sm' name='precio' id='precio' value={form.precio || ''} onChange={handleChange} autoComplete='off' />
                                         </div>
-                                        <div className='group-form mb-2'>
+                                        {/* <div className='group-form mb-2'>
                                             <label htmlFor="" className='form-label'>Seleccione una categoría</label>
                                             <select name="" id="" className='form-control form-control-sm'>
                                                 <option value='3'>Carnes</option>
                                             </select>
-                                        </div>
+                                        </div> */}
                                     </div>
                                     <div className='col-md-6'>
                                         <div className='group-form mb-2'>
